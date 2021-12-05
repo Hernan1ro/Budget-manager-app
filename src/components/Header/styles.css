@@ -1,4 +1,4 @@
-nav {
+.header__nav {
   display: flex;
   justify-content: flex-end;
   height: 7rem;
@@ -6,12 +6,12 @@ nav {
   z-index: 0;
   padding: 0 5% 0 5%;
 }
-nav ul {
+.header__ul {
   display: flex;
   align-items: center;
   opacity: 1;
 }
-ul li {
+.header__li {
   padding: 10px 30px 10px 30px;
   font-size: 1.6rem;
   list-style: none;
@@ -19,19 +19,19 @@ ul li {
   font-weight: 400;
   cursor: pointer;
 }
-ul li:nth-child(2) {
+.header--register {
   background-color: var(--orange);
   border-radius: 5px;
 }
-ul li:nth-child(2):hover {
+.header--register:hover {
   background-color: var(--light-orange);
 }
-ul li:nth-child(1):hover {
+.header--login:hover {
   color: var(--orange);
 }
 
 @media screen and (max-width: 600px) {
-  ul li {
+  .header__li {
     font-size: 1.2rem;
   }
 }

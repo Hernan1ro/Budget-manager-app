@@ -3,11 +3,11 @@ import "./styles.css";
 
 const Header = () => {
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>INICIAR SESIÓN</li>
-          <li>REGISTRATE</li>
+    <header class="header">
+      <nav class="header__nav">
+        <ul class="header__ul">
+          <li class="header__li header--login">INICIAR SESIÓN</li>
+          <li class="header__li header--register">REGISTRATE</li>
         </ul>
       </nav>
     </header>
