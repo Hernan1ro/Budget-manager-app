@@ -41,7 +41,8 @@ body {
   border-radius: 5px;
   outline: none;
   border: none;
-  width: 250px;
+  max-width: 250px;
+  width: 35%;
   margin-right: 7px;
 }
 .form__input:hover {
@@ -52,14 +53,18 @@ body {
 }
 .form__button {
   padding: 16px;
-  color: var(--white);
   background-color: var(--orange);
   border: none;
   border-radius: 5px;
   font-size: 2rem;
   box-sizing: border-box;
   margin-left: 60px;
-  width: 215px;
+  max-width: 215px;
+  width: 30%;
+}
+.form__button a {
+  text-decoration: none;
+  color: var(--white);
 }
 .form__button:hover {
   background-color: var(--light-orange);
@@ -71,6 +76,7 @@ body {
   }
   .main-container {
     width: auto;
+    padding: 3rem 1rem 1rem;
   }
   .form {
     flex-direction: column;
@@ -80,8 +86,10 @@ body {
   }
   .form__input {
     margin-bottom: 10px;
+    width: 100%;
   }
   .form__button {
     margin-left: 0;
+    width: 100%;
   }
 }

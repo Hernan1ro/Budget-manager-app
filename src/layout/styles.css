@@ -1,0 +1,10 @@
+.background-layout {
+  background-image: url("https://st2.depositphotos.com/1000423/8505/i/950/depositphotos_85055128-stock-photo-business-still-life.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

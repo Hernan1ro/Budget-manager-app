@@ -31,11 +31,9 @@ const Home = () => {
               name="password"
               placeholder="Password"
             />
-            <Link to="/login">
-              <button className="form__button" type="submit">
-                INGRESAR
-              </button>
-            </Link>
+            <button className="form__button" type="submit">
+              <Link to="/login">INGRESAR</Link>
+            </button>
           </form>
         </div>
       </main>
