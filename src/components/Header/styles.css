@@ -29,3 +29,9 @@ ul li:nth-child(2):hover {
 ul li:nth-child(1):hover {
   color: var(--orange);
 }
+
+@media screen and (max-width: 600px) {
+  ul li {
+    font-size: 1.2rem;
+  }
+}

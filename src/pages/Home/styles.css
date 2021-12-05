@@ -9,31 +9,31 @@ main {
 .main-container {
   padding: 3rem;
 }
-.main-container h1,
-h4,
-h6 {
+.main-container__title,
+.main-container__subtitle,
+.main-container__phrase {
   color: var(--white);
   font-weight: 500;
   margin-bottom: 20px;
 }
-.main-container h1 {
+.main-container__title {
   font-size: 3rem;
 }
-.main-container h4 {
+.main-container__subtitle {
   font-size: 2.2rem;
   margin-bottom: 20px;
 }
-.main-container h6 {
+.main-container__phrase {
   font-size: 1.4rem;
   margin-bottom: 20px;
 }
-.main-container form {
+.form {
   margin-top: 60px;
   display: flex;
   margin-top: 90px;
   margin-bottom: 90px;
 }
-.main-container input {
+.form__input {
   padding: 20px;
   border-radius: 5px;
   outline: none;
@@ -41,13 +41,13 @@ h6 {
   width: 250px;
   margin-right: 7px;
 }
-.main-container input:hover {
-  border: solid 2px var(--orange);
+.form__input:hover {
+  border: solid 1px var(--orange);
 }
-.main-container input::placeholder {
+.form__input::placeholder {
   font-size: 1.6rem;
 }
-.main-container button {
+.form__button {
   padding: 16px;
   color: var(--white);
   background-color: var(--orange);
@@ -58,25 +58,24 @@ h6 {
   margin-left: 60px;
   width: 215px;
 }
-
+.form__button:hover {
+  background-color: var(--light-orange);
+}
 @media screen and (max-width: 600px) {
-  ul li {
-    font-size: 1.2rem;
-  }
   main {
     margin-left: 5%;
     margin-right: 5%;
   }
-  .main-container form {
+  .form {
     flex-direction: column;
     align-items: center;
     margin-top: 60px;
     margin-bottom: 60px;
   }
-  .main-container input {
+  .form__input {
     margin-bottom: 10px;
   }
-  .main-container button {
+  .form__button {
     margin-left: 0;
   }
 }
