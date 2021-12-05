@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  scroll-behavior: smooth;
+}
+:root {
+  /* hotcolors */
+  --orange: #ffa952;
+  --dark-orange: #ff8101;
+  --light-orange: #f7ba7e;
+  --red: #f44236;
+  --dark-red: #f71000;
+  --light-red: #ffafa9;
+  /* coldcolors */
+  --green: #4ab050;
+  --dark-green: #88b68b;
+  --light-green: #00b30c;
+  --warn-black: #201e1c;
+  --black: #282623;
+  --black-opacity: rgba(0, 0, 0, 0.6);
+  --grey: #bababa;
+  --white: white;
+}

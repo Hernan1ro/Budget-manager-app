@@ -1,0 +1,10 @@
+.main-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-register form {
+  display: inherit;
+  flex-direction: column;
+}
