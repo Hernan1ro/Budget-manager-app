@@ -1,20 +1,39 @@
 import React from "react";
-import Input from "../../components/Input/index.jsx";
 import "./styles.css";
 
 const Register = () => {
   return (
     <main className="main-register">
-      <h3>Registrate</h3>
-      <h5>
+      <h3 className="main-register__title">Registrate</h3>
+      <h5 className="main-register__subtitle">
         El camino está por delante de ti. Ya ha dado su primer paso hacia la
-        transformación financiera y lo guiaremos en ese viaje
+        transformación financiera y lo guiaremos en ese viaje.
       </h5>
-      <form action="">
-        <Input name={"name"} type={"text"} placeholder={"Nombre"} />
-        <Input name={"email"} type={"text"} placeholder={"Email"} />
-        <Input name={"password"} type={"password"} placeholder={"Password"} />
+      <form className="main-register__form" action="">
+        <input
+          placeholder="Nombre"
+          type="text"
+          name="name"
+          className="main-register__input"
+        />
+        <input
+          placeholder="Email"
+          type="text"
+          name="email"
+          className="main-register__input"
+        />
+        <input
+          placeholder="Password"
+          type="password"
+          name="password"
+          className="main-register__input"
+        />
+        <button className="main-register__button">Entrar</button>
       </form>
+      <p className="main-register__conditions">
+        Al registrar, acepto los Términos de uso y Política de Privacidad de
+        Mobills.
+      </p>
     </main>
   );
 };

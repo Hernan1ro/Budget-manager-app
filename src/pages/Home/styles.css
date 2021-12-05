@@ -1,7 +1,7 @@
 body {
   background-color: rgb(240, 233, 233);
 }
-main {
+.main-container {
   margin: 40px 50px 10px 50px;
   padding: 20%, 30%, 40%, 10%;
   background-color: var(--black-opacity);

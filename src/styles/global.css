@@ -23,6 +23,7 @@ html {
   --warn-black: #201e1c;
   --black: #282623;
   --black-opacity: rgba(0, 0, 0, 0.6);
-  --grey: #bababa;
+  --ligth-grey: #bababa;
+  --grey: #48525e;
   --white: white;
 }

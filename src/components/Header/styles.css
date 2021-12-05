@@ -15,9 +15,12 @@
   padding: 10px 30px 10px 30px;
   font-size: 1.6rem;
   list-style: none;
-  color: var(--white);
   font-weight: 400;
   cursor: pointer;
+}
+.header__li a {
+  text-decoration: none;
+  color: var(--white);
 }
 .header--register {
   background-color: var(--orange);
@@ -26,7 +29,7 @@
 .header--register:hover {
   background-color: var(--light-orange);
 }
-.header--login:hover {
+.header--login a:hover {
   color: var(--orange);
 }
 
