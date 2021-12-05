@@ -17,13 +17,13 @@ const Register = () => {
           className="main-register__input"
         />
         <input
-          placeholder="Email"
+          placeholder="Correo"
           type="text"
           name="email"
           className="main-register__input"
         />
         <input
-          placeholder="Password"
+          placeholder="Contraseña"
           type="password"
           name="password"
           className="main-register__input"

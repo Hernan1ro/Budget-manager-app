@@ -22,8 +22,11 @@ html {
   --light-green: #00b30c;
   --warn-black: #201e1c;
   --black: #282623;
-  --black-opacity: rgba(0, 0, 0, 0.6);
   --ligth-grey: #bababa;
   --grey: #48525e;
   --white: white;
+
+  /* Background-colors  */
+  --black-opacity: rgba(0, 0, 0, 0.6);
+  --orange-opacity: rgb(255 99 7 / 32%);
 }
