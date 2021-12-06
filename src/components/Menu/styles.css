@@ -1,0 +1,21 @@
+.header-container {
+  height: 7rem;
+  background-color: var(--black-opacity);
+}
+.header-container__options {
+  height: inherit;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  list-style: none;
+  /* margin-right: 7rem; */
+}
+.header-container__option {
+  font-size: 2rem;
+  margin-right: 5rem;
+  font-weight: 500;
+}
+.header-container__option a {
+  color: var(--white);
+  text-decoration: none;
+}
