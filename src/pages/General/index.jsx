@@ -7,7 +7,10 @@ const General = () => {
   return (
     <>
       <Menu />
-      <div>General</div>
+      <main className="general-main__container">
+        <div className="general-main__title-container"></div>
+        <div className="general-main__chart-container"></div>
+      </main>
     </>
   );
 };
