@@ -1,14 +1,16 @@
 .header-container {
   height: 7rem;
   background-color: var(--black-opacity);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .header-container__options {
   height: inherit;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   list-style: none;
-  /* margin-right: 7rem; */
 }
 .header-container__option {
   font-size: 2rem;
@@ -18,4 +20,22 @@
 .header-container__option a {
   color: var(--white);
   text-decoration: none;
+}
+.header-container__icon {
+  width: 80px;
+  height: 50px;
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .header-container {
+    justify-content: center;
+  }
+  .header-container__options {
+    display: none;
+  }
+  .header-container__icon {
+    display: block;
+  }
 }
