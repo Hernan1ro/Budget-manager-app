@@ -1,0 +1,7 @@
+.white-background {
+  margin: 0 auto;
+  width: 90%;
+  min-width: 300px;
+  height: 85%;
+  background-color: var(--white-opacity);
+}

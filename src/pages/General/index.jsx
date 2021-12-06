@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
 import Menu from "../../components/Menu";
+import WhiteBackground from "../../layout/WhiteBackground";
 
 const General = () => {
   return (
     <>
       <Menu />
-      <main className="general-main__container">
+      <WhiteBackground>
         <div className="general-main__title-container"></div>
         <div className="general-main__chart-container"></div>
-      </main>
+      </WhiteBackground>
     </>
   );
 };

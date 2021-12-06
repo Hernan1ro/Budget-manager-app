@@ -1,11 +1,14 @@
 import React from "react";
 import Menu from "../../components/Menu";
+import WhiteBackground from "../../layout/WhiteBackground";
 
 const Income = () => {
   return (
     <>
       <Menu />
-      <div>Income</div>
+      <WhiteBackground>
+        <div>Income</div>
+      </WhiteBackground>
     </>
   );
 };
