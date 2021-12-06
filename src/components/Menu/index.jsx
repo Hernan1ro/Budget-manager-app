@@ -23,6 +23,7 @@ const Menu = () => {
         </li>
       </ul>
       <img
+        alt="Menu icon"
         className="header-container__icon"
         src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-menu-user-interface-kmg-design-flat-kmg-design.png"
       />
