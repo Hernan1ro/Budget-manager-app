@@ -1,0 +1,87 @@
+.records-list {
+  background-color: var(--white);
+  width: 80%;
+  min-width: 300;
+  margin: 0 auto;
+  /* padding: 1rem; */
+}
+.records-list__month {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.records-list__month .month {
+  display: flex;
+  justify-content: center;
+  height: 70%;
+  align-items: center;
+}
+.month .fas {
+  font-size: 3rem;
+  color: var(--red);
+  cursor: pointer;
+}
+.month .fa-arrow-left {
+  margin-right: 2rem;
+}
+.month .fa-arrow-right {
+  margin-left: 2rem;
+}
+.month__element {
+  border: solid 3px var(--red);
+  padding: 1.6rem;
+  border-radius: 25px;
+  width: 18rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--red);
+  /* margin: 0 auto; */
+  text-align: center;
+}
+.data-table {
+  width: 100%;
+  /* padding: 1rem; */
+  font-size: 1.4rem;
+}
+.heading-table tr th {
+  padding: 1rem;
+  background-color: rgb(231, 231, 231);
+}
+
+.data-table__item {
+  text-align: center;
+}
+.data-situation .fas {
+  font-size: 2rem;
+  color: var(--green);
+}
+.data-category .data-category__container {
+  display: flex;
+  justify-content: center;
+}
+.data-category__container .fas {
+  font-size: 2rem;
+  color: var(--orange);
+  margin-right: 1rem;
+}
+.data-actions .fas,
+.data-actions .far {
+  font-size: 1.6rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .records-list {
+    width: 100%;
+  }
+  .data-table {
+    font-size: 0.7rem;
+  }
+  .data-table .fas,
+  .data-table .far {
+    font-size: 0.8rem;
+  }
+}
