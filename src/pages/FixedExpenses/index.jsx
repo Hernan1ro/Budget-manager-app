@@ -6,11 +6,27 @@ import DataList from "../../containers/DataList";
 import "./styles.css";
 
 const FixedExpenses = () => {
+  const options = [
+    "Arriendos",
+    "Mercado del mes",
+    "Agua",
+    "Energía",
+    "Gas",
+    "Colegios",
+    "Internet",
+    "Celular",
+    "Transporte",
+    "Almuerzos",
+    "Gimnasio",
+    "Servicios",
+    "Medicos",
+    "Otros",
+  ];
   return (
     <>
       <Menu />
       <WhiteBackground>
-        <NewRecord page="Ingreso fijo" />
+        <NewRecord page="Ingreso fijo" options={options} color="red" />
         <DataList />
       </WhiteBackground>
     </>
