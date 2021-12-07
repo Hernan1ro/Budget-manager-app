@@ -1,0 +1,53 @@
+.income-container {
+  padding: 2rem;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-record {
+  background-color: var(--white);
+  padding: 2rem;
+  padding-top: 3rem;
+  width: 50%;
+  min-width: 260px;
+}
+
+.new-record__title {
+  font-size: 2.6rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.new-record__subtitle {
+  font-size: 1.6rem;
+  color: var(--orange);
+  margin-bottom: 2rem;
+}
+.new-record__form {
+  text-align: center;
+}
+.input-container {
+  width: 95%;
+  border-bottom: solid 2px var(--ligth-grey);
+  margin-bottom: 2rem;
+}
+.input-container:hover {
+  border-bottom: solid 2px var(--orange);
+}
+.input-value {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  outline: none;
+}
+.new-record__form button {
+  padding: 1rem;
+  background-color: var(--green);
+  color: var(--white);
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+}

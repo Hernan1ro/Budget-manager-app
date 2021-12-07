@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "../../components/Menu";
 import WhiteBackground from "../../layout/WhiteBackground";
+import "./styles.css";
 
 const Income = () => {
   return (
@@ -19,7 +20,7 @@ const Income = () => {
                 <input
                   name="value"
                   type="number"
-                  className="input-container__value"
+                  className="input-value input-container__value"
                   placeholder="Valor"
                 />
               </div>
@@ -28,7 +29,7 @@ const Income = () => {
                 <input
                   name="date"
                   type="date"
-                  className="input-container__date"
+                  className="input-value input-container__date"
                   placeholder="Fecha"
                 />
               </div>
@@ -37,20 +38,24 @@ const Income = () => {
                 <input
                   name="description"
                   type="text"
-                  className="input-container__description"
+                  className="input-value input-container__description"
                   placeholder="Descripción"
                 />
               </div>
               <div className="input-container">
                 <img src="" alt="" />
-                <input
+                <select
                   name="category"
-                  type="text"
-                  className="input-container__category"
+                  type="select"
+                  className="input-value input-container__category"
                   placeholder="Categoria"
-                />
+                >
+                  <option value="">Trabajo</option>
+                  <option value="">Ingreso pasivo</option>
+                  <option value="">Otros</option>
+                </select>
               </div>
-              <button type="submit">Registrar nuevo ingreso</button>
+              <button type="submit">Agregar Ingreso</button>
             </form>
           </div>
           <div className="records-list">
