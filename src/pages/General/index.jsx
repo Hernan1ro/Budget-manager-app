@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import Menu from "../../components/Menu";
 import WhiteBackground from "../../layout/WhiteBackground";
+import App from "../../containers/app1.js";
 
 const General = () => {
   return (
@@ -21,7 +21,9 @@ const General = () => {
               REPORTE DETALLADO
             </button>
           </div>
-          <div className="chart-container"></div>
+          <div className="chart-container">
+            <App />
+          </div>
         </div>
       </WhiteBackground>
     </>
