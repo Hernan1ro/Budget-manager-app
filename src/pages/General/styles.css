@@ -2,12 +2,13 @@
   width: 100%;
   padding: 2rem;
   display: flex;
+  padding-top: 6rem;
+  text-align: center;
 }
 
 .text-container {
   width: 50%;
   width: 100%;
-  border: solid 1px red;
 }
 .text-container__title {
   font-size: 4rem;
@@ -30,7 +31,6 @@
 }
 .chart-container {
   width: 50%;
-  border: solid 1px red;
   width: 100%;
   /* background-color: var(--white); */
 }
@@ -43,5 +43,15 @@
   }
   .resume-container {
     flex-wrap: wrap;
+  }
+  .text-container__title {
+    font-size: 3rem;
+  }
+  .text-container__subtitle {
+    font-size: 2rem;
+  }
+  .text-container__button {
+    padding: 1rem;
+    font-size: 2rem;
   }
 }
