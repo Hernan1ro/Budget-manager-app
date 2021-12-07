@@ -1,0 +1,34 @@
+.records-list__month {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.records-list__month .month {
+  display: flex;
+  justify-content: center;
+  height: 70%;
+  align-items: center;
+}
+.month .fas {
+  font-size: 3rem;
+  color: var(--red);
+  cursor: pointer;
+}
+.month .fa-arrow-left {
+  margin-right: 2rem;
+}
+.month .fa-arrow-right {
+  margin-left: 2rem;
+}
+.month__element {
+  border: solid 3px var(--red);
+  padding: 1.6rem;
+  border-radius: 25px;
+  width: 18rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--red);
+  text-align: center;
+}
