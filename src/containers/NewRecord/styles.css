@@ -22,7 +22,6 @@
 
 .new-record__subtitle {
   font-size: 1.6rem;
-  color: var(--orange);
   margin-bottom: 2rem;
 }
 .new-record__form {
@@ -33,7 +32,13 @@
   border-bottom: solid 2px var(--ligth-grey);
   margin-bottom: 2rem;
 }
-.input-container:hover {
+.green-input-color:hover {
+  border-bottom: solid 2px var(--green);
+}
+.red-input-color:hover {
+  border-bottom: solid 2px var(--red);
+}
+.orange-input-color:hover {
   border-bottom: solid 2px var(--orange);
 }
 .input-value {
@@ -44,10 +49,29 @@
 }
 .new-record__form button {
   padding: 1rem;
-  background-color: var(--green);
   color: var(--white);
   border-radius: 15px;
   border: none;
   cursor: pointer;
   font-size: 2rem;
+}
+
+.red-button {
+  background-color: var(--red);
+}
+.green-button {
+  background-color: var(--green);
+}
+.orange-button {
+  background-color: var(--orange);
+}
+
+.record-container .green-color {
+  color: var(--green);
+}
+.record-container .red-color {
+  color: var(--red);
+}
+.record-container .orange-color {
+  color: var(--orange);
 }

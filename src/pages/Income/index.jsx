@@ -6,11 +6,12 @@ import DataList from "../../containers/DataList";
 import "./styles.css";
 
 const Income = () => {
+  const tipoIngresos = ["Trabajo", "Inversion", "Pasivo", "Otro"];
   return (
     <>
       <Menu />
       <WhiteBackground>
-        <NewRecord />
+        <NewRecord page="Ingreso" options={tipoIngresos} color={"green"} />
         <DataList />
       </WhiteBackground>
     </>

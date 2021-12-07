@@ -1,14 +1,16 @@
 import React from "react";
 import "./styles.css";
 
-const NewRecord = () => {
+const NewRecord = ({ page, options, color }) => {
   return (
     <div className="record-container">
       <div className="new-record">
-        <h2 className="new-record__title">Nuevo Ingreso</h2>
-        <p className="new-record__subtitle">Debe tener un valor mayor que 0</p>
+        <h2 className="new-record__title">Nuevo {page}</h2>
+        <p className={`new-record__subtitle ${color}-color`}>
+          Debe tener un valor mayor que 0
+        </p>
         <form action="" className="new-record__form">
-          <div className="input-container">
+          <div className={`input-container ${color}-input-color`}>
             <img src="" alt="" />
             <input
               name="value"
@@ -17,7 +19,7 @@ const NewRecord = () => {
               placeholder="Valor"
             />
           </div>
-          <div className="input-container">
+          <div className={`input-container ${color}-input-color`}>
             <img src="" alt="" />
             <input
               name="date"
@@ -26,7 +28,7 @@ const NewRecord = () => {
               placeholder="Fecha"
             />
           </div>
-          <div className="input-container">
+          <div className={`input-container ${color}-input-color`}>
             <img src="" alt="" />
             <input
               name="description"
@@ -35,7 +37,7 @@ const NewRecord = () => {
               placeholder="Descripción"
             />
           </div>
-          <div className="input-container">
+          <div className={`input-container ${color}-input-color`}>
             <img src="" alt="" />
             <select
               name="category"
@@ -43,12 +45,18 @@ const NewRecord = () => {
               className="input-value input-container__category"
               placeholder="Categoria"
             >
-              <option value="">Trabajo</option>
-              <option value="">Ingreso pasivo</option>
-              <option value="">Otros</option>
+              {options.map((option) => {
+                return (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                );
+              })}
             </select>
           </div>
-          <button type="submit">Agregar Ingreso</button>
+          <button className={`${color}-button`} type="submit">
+            Agregar {page}
+          </button>
         </form>
       </div>
     </div>

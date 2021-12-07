@@ -6,9 +6,9 @@ const DataList = () => {
     <div className="records-list">
       <div className="records-list__month">
         <div className="month">
-          <i class="fas fa-arrow-left"></i>
+          <i className="fas fa-arrow-left"></i>
           <div className="month__element">Noviembre 2021</div>
-          <i class="fas fa-arrow-right"></i>
+          <i className="fas fa-arrow-right"></i>
         </div>
       </div>
       <div className="records-list__data">
@@ -26,7 +26,7 @@ const DataList = () => {
           <tbody className="data-table__item">
             <tr>
               <td className="data-situation">
-                <i class="fas fa-check-circle"></i>
+                <i className="fas fa-check-circle"></i>
               </td>
               <td className="data-date">
                 <p>17/11/2002</p>
@@ -36,17 +36,17 @@ const DataList = () => {
               </td>
               <td className="data-category">
                 <div className="data-category__container">
-                  <i class="fas fa-umbrella-beach"></i>
+                  <i className="fas fa-umbrella-beach"></i>
                   <p>Recreación</p>
                 </div>
               </td>
               <td className="data-value">$20000</td>
               <td className="data-actions">
                 <div className="data-actions__container">
-                  <i class="fas fa-pencil-alt"></i>
-                  <i class="fas fa-paperclip"></i>
-                  <i class="far fa-trash-alt"></i>
-                  <i class="fas fa-ellipsis-v"></i>
+                  <i className="fas fa-pencil-alt"></i>
+                  <i className="fas fa-paperclip"></i>
+                  <i className="far fa-trash-alt"></i>
+                  <i className="fas fa-ellipsis-v"></i>
                 </div>
               </td>
             </tr>

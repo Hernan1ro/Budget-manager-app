@@ -10,7 +10,7 @@ const AntExpenses = () => {
     <>
       <Menu />
       <WhiteBackground>
-        <NewRecord />
+        <NewRecord page="Gasto hormiga" />
         <DataList />
       </WhiteBackground>
     </>
