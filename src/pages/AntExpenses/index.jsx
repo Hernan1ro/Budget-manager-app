@@ -19,7 +19,7 @@ const AntExpenses = () => {
       <Menu />
       <WhiteBackground>
         <NewRecord page="Gasto hormiga" options={options} color="orange" />
-        <DataList />
+        <DataList color="orange" />
       </WhiteBackground>
     </>
   );

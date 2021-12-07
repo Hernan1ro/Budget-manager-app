@@ -12,7 +12,7 @@ const Income = () => {
       <Menu />
       <WhiteBackground>
         <NewRecord page="Ingreso" options={tipoIngresos} color={"green"} />
-        <DataList />
+        <DataList color="green" />
       </WhiteBackground>
     </>
   );

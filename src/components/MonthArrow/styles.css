@@ -13,8 +13,16 @@
 }
 .month .fas {
   font-size: 3rem;
-  color: var(--red);
   cursor: pointer;
+}
+.red-month .fas {
+  color: var(--red);
+}
+.green-month .fas {
+  color: var(--green);
+}
+.orange-month .fas {
+  color: var(--orange);
 }
 .month .fa-arrow-left {
   margin-right: 2rem;
@@ -23,12 +31,23 @@
   margin-left: 2rem;
 }
 .month__element {
-  border: solid 3px var(--red);
   padding: 1.6rem;
   border-radius: 25px;
   width: 18rem;
   font-size: 1.6rem;
   font-weight: bold;
-  color: var(--red);
   text-align: center;
+}
+
+.red-month__element {
+  color: var(--red);
+  border: solid 3px var(--red);
+}
+.green-month__element {
+  color: var(--green);
+  border: solid 3px var(--green);
+}
+.orange-month__element {
+  color: var(--orange);
+  border: solid 3px var(--orange);
 }

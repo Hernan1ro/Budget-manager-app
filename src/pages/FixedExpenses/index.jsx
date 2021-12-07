@@ -27,7 +27,7 @@ const FixedExpenses = () => {
       <Menu />
       <WhiteBackground>
         <NewRecord page="Ingreso fijo" options={options} color="red" />
-        <DataList />
+        <DataList color="red" />
       </WhiteBackground>
     </>
   );

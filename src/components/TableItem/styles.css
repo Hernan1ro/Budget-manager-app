@@ -1,0 +1,19 @@
+.data-situation .fas {
+  font-size: 2rem;
+  color: var(--green);
+}
+.data-category .data-category__container {
+  display: flex;
+  justify-content: center;
+}
+.data-category__container .fas {
+  font-size: 2rem;
+  color: var(--orange);
+  margin-right: 1rem;
+}
+.data-actions .fas,
+.data-actions .far {
+  font-size: 1.6rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
