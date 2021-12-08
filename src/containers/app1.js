@@ -38,12 +38,8 @@ function App() {
       <BarChart width={500} height={300} data={data}>
         <CartesianGrid></CartesianGrid>
         <XAxis dataKey="name"></XAxis>
-        {/* <XAxis dataKey="keystroke"></XAxis> */}
         <YAxis></YAxis>
         <Tooltip></Tooltip>
-        {/* <Legend></Legend> */}
-        {/* <Bar dataKey="Gastos hormiga" fill="orange"></Bar> */}
-        {/* <Bar dataKey="Gastos fijos" fill="red"></Bar> */}
         <Bar dataKey="ingresos" fill="green"></Bar>
         <Bar dataKey="costoFijos" fill="red"></Bar>
         <Bar dataKey="gastosHormiga" fill="orange"></Bar>
