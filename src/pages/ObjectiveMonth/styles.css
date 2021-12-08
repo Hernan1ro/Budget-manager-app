@@ -39,11 +39,13 @@
   margin-right: 1rem;
 }
 .label-container input {
-  padding: 2rem;
+  padding: 1rem;
   border: none;
   outline: solid 1px rgb(96 15 15 / 26%);
 }
-
+.label-container input::placeholder {
+  font-size: 3rem;
+}
 .objective-form button {
   display: block;
   padding: 2rem;

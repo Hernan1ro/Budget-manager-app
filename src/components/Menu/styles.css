@@ -22,6 +22,12 @@
   color: var(--white);
   text-decoration: none;
 }
+.header-container__option a:hover {
+  color: var(--white-opacity);
+}
+.header-container__option a:target {
+  color: var(--orange);
+}
 .header-container__icon {
   width: 80px;
   height: 50px;
