@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
+import { useDispatch } from "react-redux";
+import { registroEmailPasswordNombre } from "../../actions/actionsRegister";
 
 const Register = () => {
+  const dispatch = useDispatch();
   const name = useInputValue();
   const email = useInputValue();
   const password = useInputValue();
@@ -16,13 +19,11 @@ const Register = () => {
       alert("Correo electrónico no válido");
     } else if (!(password.value.length > 6)) {
       alert("Tu contraseña debe tener al menos 6 caracteres");
-    } else if (testEmail && password.value.length > 6) {
-      console.log({
-        userId: Date.now(),
-        name: name.value,
-        email: email.value,
-        password: password.value,
-      });
+    } else if (testEmail && password.value.length >= 6) {
+      dispatch(
+        registroEmailPasswordNombre(email.value, password.value, name.value)
+      );
+      alert("Registro exitoso");
     }
   };
 
@@ -33,11 +34,7 @@ const Register = () => {
         El camino está por delante de ti. Ya ha dado su primer paso hacia la
         transformación financiera y lo guiaremos en ese viaje.
       </h5>
-      <form
-        onSubmit={(e) => handleSubmit(e)}
-        className="main-register__form"
-        action=""
-      >
+      <form onSubmit={handleSubmit} className="main-register__form" action="">
         <input
           placeholder="Nombre"
           type="text"
