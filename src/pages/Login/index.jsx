@@ -7,8 +7,7 @@ import {
   loginGoogle,
   loginFacebook,
 } from "../../actions/actionLogin";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -23,15 +22,21 @@ const Login = () => {
       return;
     }
     dispatch(loginEmailPassword(email.value, password.value));
-    navigate("/general");
+    setTimeout(() => {
+      navigate("/general");
+    }, 10000);
   };
-  const handleGoogle = async () => {
-    await dispatch(loginGoogle());
-    navigate("/general");
+  const handleGoogle = () => {
+    dispatch(loginGoogle());
+    setTimeout(() => {
+      navigate("/general");
+    }, 10000);
   };
   const handleFacebook = () => {
     dispatch(loginFacebook());
-    navigate("/general");
+    setTimeout(() => {
+      navigate("/general");
+    }, 10000);
   };
   return (
     <div className="login-container">

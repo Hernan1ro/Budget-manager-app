@@ -36,6 +36,12 @@ body {
   margin-top: 90px;
   margin-bottom: 90px;
 }
+.form-image img {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
 .form__input {
   padding: 20px;
   border-radius: 5px;

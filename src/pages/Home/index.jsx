@@ -18,6 +18,12 @@ const Home = () => {
           <h6 className="main-container__phrase">
             Lleva seguimiento de cada peso con reporte detalaldos
           </h6>
+          <div className="form-image">
+            <img
+              src="https://pngeans.com/wp-content/uploads/2019/12/free-personal-finance-courses.jpg"
+              alt="Home-image"
+            />
+          </div>
           <form className="form" action="">
             <input
               className="form__input"
