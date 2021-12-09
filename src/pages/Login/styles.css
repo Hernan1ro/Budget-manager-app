@@ -1,6 +1,6 @@
 .login-container {
   width: 100%;
-  height: 80%;
+  height: 85%;
   background: var(--black-opacity);
   position: absolute;
   top: 12%;
@@ -10,7 +10,7 @@
 }
 
 .login-form {
-  padding: 4rem 1rem 4rem 1rem;
+  padding: 2.6rem 1rem 4rem 1rem;
   width: 60%;
   background-color: var(--orange-opacity);
   margin-top: 8rem;
@@ -24,11 +24,14 @@
 .login-form__title {
   font-size: 3.4rem;
   margin-bottom: 1.6rem;
+  color: var(--white);
 }
 .login-form__subtitle {
   margin-bottom: 4rem;
   font-size: 1.8rem;
   font-weight: 500;
+  font-weight: bold;
+  color: var(--dark-orange);
 }
 .login-form__form {
   display: flex;
@@ -57,9 +60,13 @@
   cursor: pointer;
   margin-bottom: 1rem;
   max-width: 300px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
 }
 .login-form__btn--google {
   background-color: var(--white);
+  color: var(--warn-black);
 }
 .login-form__btn--facebook {
   background-color: rgb(34, 170, 248);
@@ -84,6 +91,15 @@
   color: var(--white);
 }
 
+.register-suggestion {
+  display: block;
+  color: var(--white);
+}
+
+.register-suggestion a {
+  color: var(--orange);
+  font-weight: bold;
+}
 /* @media screen and (max-width: 600px) {
   .login-form__form {
     flex-direction: column;

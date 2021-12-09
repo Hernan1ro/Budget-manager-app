@@ -8,6 +8,7 @@ import {
   loginFacebook,
 } from "../../actions/actionLogin";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -17,11 +18,15 @@ const Login = () => {
 
   const handlelogin = (e) => {
     e.preventDefault();
+    if (email.value === "" || password.value === "") {
+      alert("Ambos campos deben estar llenos");
+      return;
+    }
     dispatch(loginEmailPassword(email.value, password.value));
     navigate("/general");
   };
-  const handleGoogle = () => {
-    dispatch(loginGoogle());
+  const handleGoogle = async () => {
+    await dispatch(loginGoogle());
     navigate("/general");
   };
   const handleFacebook = () => {
@@ -31,7 +36,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <h1 className="login-form__title">Ingresar</h1>
+        <h1 className="login-form__title">Inicio de sesión</h1>
         <h4 className="login-form__subtitle">
           Es hora de transformar tus finanzas.
         </h4>
@@ -50,7 +55,7 @@ const Login = () => {
             className="login-form__password"
             {...password}
           />
-          <button className="login-form__button">Entrar</button>
+          <button className="login-form__button">Iniciar sesión</button>
           <div
             onClick={handleGoogle}
             className="login-form__button login-form__btn--google"
@@ -72,6 +77,12 @@ const Login = () => {
               <p>Inicia sesión con Facebook</p>
               <i className="fab fa-facebook-f"></i>
             </div>
+          </div>
+          <div className="register-suggestion">
+            <p>¿No tienes una cuenta?</p>
+            <p>
+              Registrate <Link to={"/register"}>Aquí</Link>
+            </p>
           </div>
         </form>
       </div>
