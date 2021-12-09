@@ -4,7 +4,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { google } from "../firebase/firebaseConfig";
+import { google, facebook } from "../firebase/firebaseConfig";
 
 export const loginEmailPassword = (email, password) => {
   return (dispatch) => {
@@ -31,6 +31,17 @@ export const loginGoogle = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+};
+
+export const loginFacebook = () => {
+  return (dispatch) => {
+    const auth = getAuth();
+    signInWithPopup(auth, facebook)
+      .then(({ user }) => {
+        dispatch(loginSincrono((user.uid, user.displayName)));
+      })
+      .catch((err) => console.log(err));
   };
 };
 

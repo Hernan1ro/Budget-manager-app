@@ -7,6 +7,7 @@ import {
   loginEmailPassword,
   loginSincrono,
   loginGoogle,
+  loginFacebook,
 } from "../../actions/actionLogin";
 
 const Login = () => {
@@ -20,6 +21,9 @@ const Login = () => {
   };
   const handleGoogle = () => {
     dispatch(loginGoogle());
+  };
+  const handleFacebook = () => {
+    dispatch(loginFacebook());
   };
   return (
     <div className="login-container">
@@ -45,7 +49,7 @@ const Login = () => {
           />
           <button className="login-form__button">Entrar</button>
           <div className="auth__social-networks login-form__button">
-            <div onClick={handleGoogle} className="google-btn">
+            <div onClick={handleFacebook} className="google-btn">
               <div className="google-icon-wrapper">
                 <img
                   className="google-icon"
@@ -54,6 +58,15 @@ const Login = () => {
                 />
               </div>
             </div>
+            {/* <div onClick={handleFacebook} className="google-btn">
+              <div className="facebook-icon-wrapper">
+                <img
+                  className="facebook-icon"
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                  alt="facebook button"
+                />
+              </div>
+            </div> */}
           </div>
         </form>
       </div>
