@@ -19,17 +19,19 @@ function App() {
     <Background>
       <BrowserRouter>
         <Routes>
-          {!auth &&
-            ((<Route path="/general" element={<Navigate to="/login" />} />),
-            ((
-              <Route
-                path="/gastos-hormiga"
-                element={<Navigate to="/login" />}
-              />
-            ),
-            (<Route path="/gastos" element={<Navigate to="/login" />} />),
-            (<Route path="/ingresos" element={<Navigate to="/login" />} />),
-            (<Route path="/objetivos" element={<Navigate to="/login" />} />)))}
+          {!auth && (
+            <Route path="/general" element={<Navigate to="/login" />} />
+          )}
+          {!auth && (
+            <Route path="/gastos-hormiga" element={<Navigate to="/login" />} />
+          )}
+          {!auth && <Route path="/gastos" element={<Navigate to="/login" />} />}
+          {!auth && (
+            <Route path="/ingresos" element={<Navigate to="/login" />} />
+          )}
+          {!auth && (
+            <Route path="/objetivos" element={<Navigate to="/login" />} />
+          )}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
