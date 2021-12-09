@@ -1,16 +1,10 @@
 import {
-  Area,
-  AreaChart,
   Bar,
   BarChart,
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Scatter,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 

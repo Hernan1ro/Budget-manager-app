@@ -65,7 +65,7 @@ const Register = () => {
       </form>
       <p className="main-register__conditions">
         Al registrar, acepto los Términos de uso y Política de Privacidad de
-        Mobills.
+        FinAntApp.
       </p>
     </main>
   );
