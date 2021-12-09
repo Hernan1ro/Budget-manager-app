@@ -7,9 +7,10 @@ import {
   loginGoogle,
   loginFacebook,
 } from "../../actions/actionLogin";
-import { authUpdate } from "../../actions/authActions";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const email = useInputValue();
   const password = useInputValue();
@@ -17,13 +18,15 @@ const Login = () => {
   const handlelogin = (e) => {
     e.preventDefault();
     dispatch(loginEmailPassword(email.value, password.value));
-    dispatch(authUpdate(true));
+    navigate("/general");
   };
   const handleGoogle = () => {
     dispatch(loginGoogle());
+    navigate("/general");
   };
   const handleFacebook = () => {
     dispatch(loginFacebook());
+    navigate("/general");
   };
   return (
     <div className="login-container">

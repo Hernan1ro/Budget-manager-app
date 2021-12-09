@@ -3,8 +3,11 @@ import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
 import { useDispatch } from "react-redux";
 import { registroEmailPasswordNombre } from "../../actions/actionsRegister";
+import { authUpdate } from "../../actions/authActions";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const name = useInputValue();
   const email = useInputValue();
@@ -23,7 +26,9 @@ const Register = () => {
       dispatch(
         registroEmailPasswordNombre(email.value, password.value, name.value)
       );
+      dispatch(authUpdate(true));
       alert("Registro exitoso");
+      navigate("/general");
     }
   };
 

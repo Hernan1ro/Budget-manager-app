@@ -9,6 +9,7 @@ import AntExpenses from "../pages/AntExpenses";
 import FixedExpenses from "../pages/FixedExpenses";
 import Income from "../pages/Income";
 import ObjectiveMonth from "../pages/ObjectiveMonth";
+import NotFound from "../pages/NotFound";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/gastos" element={<FixedExpenses />} />
           <Route path="/ingresos" element={<Income />} />
           <Route path="/objetivos" element={<ObjectiveMonth />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </Background>

@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { google, facebook } from "../firebase/firebaseConfig";
+import { authUpdate } from "../actions/authActions";
 
 export const loginEmailPassword = (email, password) => {
   return (dispatch) => {
@@ -12,6 +13,7 @@ export const loginEmailPassword = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(loginSincrono(user.uid, user.displayName));
+        dispatch(authUpdate(true));
         alert("Bienvenido", user.displayName);
       })
       .catch((err) => {
@@ -26,6 +28,7 @@ export const loginGoogle = () => {
     const auth = getAuth();
     signInWithPopup(auth, google)
       .then(({ user }) => {
+        dispatch(authUpdate(true));
         dispatch(loginSincrono((user.uid, user.displayName)));
         alert("Bienvenido", user.displayName);
       })
@@ -40,6 +43,7 @@ export const loginFacebook = () => {
     const auth = getAuth();
     signInWithPopup(auth, facebook)
       .then(({ user }) => {
+        dispatch(authUpdate(true));
         dispatch(loginSincrono((user.uid, user.displayName)));
         alert("Bienvenido", user.displayName);
       })
