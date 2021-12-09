@@ -32,39 +32,65 @@
 }
 .login-form__form {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 90%;
   margin: 0 auto;
 }
 .login-form__email,
 .login-form__password {
-  width: 35%;
+  width: 100%;
   padding: 1.2rem;
   border-radius: 5px;
-  margin-right: 1rem;
   border: solid 1px var(--light-grey);
   outline: var(--light-orange);
+  margin-bottom: 1rem;
+  max-width: 300px;
 }
 .login-form__button {
-  width: 30%;
+  width: 100%;
   padding: 1.2rem;
   border-radius: 5px;
   border: none;
   background-color: var(--dark-orange);
-  color: var(--white);
+  color: var(--light-grey);
   cursor: pointer;
+  margin-bottom: 1rem;
+  max-width: 300px;
+}
+.login-form__btn--google {
+  background-color: var(--white);
+}
+.login-form__btn--facebook {
+  background-color: rgb(34, 170, 248);
+}
+.login-form__btn--facebook .fab {
+  font-size: 2rem;
 }
 .login-form__button:hover {
   background-color: var(--light-orange);
 }
+.btn-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-icon-container p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-right: 1rem;
+}
+.login-form__btn--facebook .btn-icon-container {
+  color: var(--white);
+}
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .login-form__form {
     flex-direction: column;
   }
   .login-form__email,
   .login-form__password,
   .login-form__button {
-    width: 100%;
     margin-bottom: 1rem;
   }
-}
+} */

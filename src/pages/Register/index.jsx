@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
 import { useDispatch } from "react-redux";
@@ -17,7 +17,7 @@ const Register = () => {
     );
     if (!testEmail) {
       alert("Correo electrónico no válido");
-    } else if (!(password.value.length > 6)) {
+    } else if (!(password.value.length >= 6)) {
       alert("Tu contraseña debe tener al menos 6 caracteres");
     } else if (testEmail && password.value.length >= 6) {
       dispatch(

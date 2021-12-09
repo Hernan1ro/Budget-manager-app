@@ -1,14 +1,13 @@
 import React from "react";
 import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
-import { link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   loginEmailPassword,
-  loginSincrono,
   loginGoogle,
   loginFacebook,
 } from "../../actions/actionLogin";
+import { authUpdate } from "../../actions/authActions";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -18,6 +17,7 @@ const Login = () => {
   const handlelogin = (e) => {
     e.preventDefault();
     dispatch(loginEmailPassword(email.value, password.value));
+    dispatch(authUpdate(true));
   };
   const handleGoogle = () => {
     dispatch(loginGoogle());
@@ -48,25 +48,27 @@ const Login = () => {
             {...password}
           />
           <button className="login-form__button">Entrar</button>
-          <div className="auth__social-networks login-form__button">
-            <div onClick={handleFacebook} className="google-btn">
-              <div className="google-icon-wrapper">
-                <img
-                  className="google-icon"
-                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                  alt="google button"
-                />
-              </div>
+          <div
+            onClick={handleGoogle}
+            className="login-form__button login-form__btn--google"
+          >
+            <div className="btn-icon-container">
+              <p>Inicia sesión con Google</p>
+              <img
+                className="google-icon"
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                alt="google button"
+              />
             </div>
-            {/* <div onClick={handleFacebook} className="google-btn">
-              <div className="facebook-icon-wrapper">
-                <img
-                  className="facebook-icon"
-                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                  alt="facebook button"
-                />
-              </div>
-            </div> */}
+          </div>
+          <div
+            onClick={handleFacebook}
+            className="login-form__button login-form__btn--facebook"
+          >
+            <div className="btn-icon-container">
+              <p>Inicia sesión con Facebook</p>
+              <i className="fab fa-facebook-f"></i>
+            </div>
           </div>
         </form>
       </div>

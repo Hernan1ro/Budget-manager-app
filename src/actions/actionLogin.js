@@ -12,11 +12,11 @@ export const loginEmailPassword = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(loginSincrono(user.uid, user.displayName));
-        console.log("Bienvenido", user);
+        alert("Bienvenido", user.displayName);
       })
       .catch((err) => {
         console.log(err);
-        console.log("El usuario no existe");
+        alert("El usuario no existe");
       });
   };
 };
@@ -27,6 +27,7 @@ export const loginGoogle = () => {
     signInWithPopup(auth, google)
       .then(({ user }) => {
         dispatch(loginSincrono((user.uid, user.displayName)));
+        alert("Bienvenido", user.displayName);
       })
       .catch((err) => {
         console.log(err);
@@ -40,6 +41,7 @@ export const loginFacebook = () => {
     signInWithPopup(auth, facebook)
       .then(({ user }) => {
         dispatch(loginSincrono((user.uid, user.displayName)));
+        alert("Bienvenido", user.displayName);
       })
       .catch((err) => console.log(err));
   };
