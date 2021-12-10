@@ -2,12 +2,12 @@ import React from "react";
 import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import {
   loginEmailPassword,
   loginGoogle,
   loginFacebook,
 } from "../../actions/actionLogin";
-import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -22,21 +22,12 @@ const Login = () => {
       return;
     }
     dispatch(loginEmailPassword(email.value, password.value));
-    setTimeout(() => {
-      navigate("/general");
-    }, 10000);
   };
   const handleGoogle = () => {
     dispatch(loginGoogle());
-    setTimeout(() => {
-      navigate("/general");
-    }, 10000);
   };
   const handleFacebook = () => {
     dispatch(loginFacebook());
-    setTimeout(() => {
-      navigate("/general");
-    }, 10000);
   };
   return (
     <div className="login-container">

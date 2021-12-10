@@ -22,7 +22,7 @@
   color: var(--white);
   text-decoration: none;
 }
-.header--signout-btn a {
+.header--signout-btn div {
   color: var(--orange);
 }
 .header-container__option a:hover {

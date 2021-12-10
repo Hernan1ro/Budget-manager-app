@@ -1,10 +1,8 @@
-import React from "react";
 import { types } from "../types/types";
 import {
   getAuth,
   signInWithPopup,
   signInWithEmailAndPassword,
-  GoogleAuthProvider,
 } from "firebase/auth";
 import { google, facebook } from "../firebase/firebaseConfig";
 import { authUpdate } from "../actions/authActions";

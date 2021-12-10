@@ -46,7 +46,7 @@ const Menu = () => {
           onClick={handleSignOut}
           className="header-container__option  header--signout-btn"
         >
-          <a>Cerrar sesión</a>
+          <div>Cerrar sesión</div>
         </li>
       </ul>
       <img
