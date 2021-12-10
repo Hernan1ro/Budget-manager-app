@@ -1,8 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
+import { getAuth, signOut } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { authUpdate } from "../../actions/authActions";
 
 const Menu = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    const auth = getAuth();
+    console.log(auth);
+    signOut(auth)
+      .then(() => {
+        alert("Signout exitosamente");
+        dispatch(authUpdate(false));
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <header className="header-container">
       <ul className="header-container__options">
@@ -20,6 +39,14 @@ const Menu = () => {
         </li>
         <li className="header-container__option">
           <Link to="/objetivos">Objetivos para el mes</Link>
+        </li>
+      </ul>
+      <ul className="header-container__options">
+        <li
+          onClick={handleSignOut}
+          className="header-container__option  header--signout-btn"
+        >
+          <a>Cerrar sesión</a>
         </li>
       </ul>
       <img

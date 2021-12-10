@@ -13,6 +13,8 @@ export const registroEmailPasswordNombre = (email, password, name) => {
       .then(async ({ user }) => {
         await updateProfile(auth.currentUser, { displayName: name });
         dispatch(registerSincrono(user.email, user.uid, user.displayName));
+        let navigate = useNavigate();
+        navigate("/general");
       })
       .catch((e) => {
         console.log(e);
