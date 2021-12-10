@@ -21,13 +21,13 @@ const Login = () => {
       alert("Ambos campos deben estar llenos");
       return;
     }
-    dispatch(loginEmailPassword(email.value, password.value));
+    dispatch(loginEmailPassword(email.value, password.value, navigate));
   };
   const handleGoogle = () => {
-    dispatch(loginGoogle());
+    dispatch(loginGoogle(navigate));
   };
   const handleFacebook = () => {
-    dispatch(loginFacebook());
+    dispatch(loginFacebook(navigate));
   };
   return (
     <div className="login-container">

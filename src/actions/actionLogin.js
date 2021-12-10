@@ -7,7 +7,7 @@ import {
 import { google, facebook } from "../firebase/firebaseConfig";
 import { authUpdate } from "../actions/authActions";
 
-export const loginEmailPassword = (email, password) => {
+export const loginEmailPassword = (email, password, navigate) => {
   return (dispatch) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -15,6 +15,7 @@ export const loginEmailPassword = (email, password) => {
         dispatch(loginSincrono(user.uid, user.displayName));
         dispatch(authUpdate(true));
         alert("Bienvenido", user.displayName);
+        navigate("/general");
       })
       .catch((err) => {
         console.log(err);
@@ -23,13 +24,14 @@ export const loginEmailPassword = (email, password) => {
   };
 };
 
-export const loginGoogle = () => {
+export const loginGoogle = (navigate) => {
   return (dispatch) => {
     const auth = getAuth();
     signInWithPopup(auth, google)
       .then(({ user }) => {
         dispatch(authUpdate(true));
         dispatch(loginSincrono((user.uid, user.displayName)));
+        navigate("/general");
         alert("Bienvenido", user.displayName);
       })
       .catch((err) => {
@@ -38,13 +40,14 @@ export const loginGoogle = () => {
   };
 };
 
-export const loginFacebook = () => {
+export const loginFacebook = (navigate) => {
   return (dispatch) => {
     const auth = getAuth();
     signInWithPopup(auth, facebook)
       .then(({ user }) => {
         dispatch(authUpdate(true));
         dispatch(loginSincrono((user.uid, user.displayName)));
+        navigate("/general");
         alert("Bienvenido", user.displayName);
       })
       .catch((err) => console.log(err));
