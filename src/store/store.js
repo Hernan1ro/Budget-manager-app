@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import { loginReducer } from "../reducers/loginReducer";
 import { registerReducer } from "../reducers/registerReducer";
 import { authReducer } from "../reducers/authReducer";
+import { incomeReducer } from "../reducers/incomeReducer";
 
 const composeEnhancers =
   (typeof window !== "undefined" &&
@@ -13,6 +14,7 @@ const reducers = combineReducers({
   login: loginReducer,
   register: registerReducer,
   auth: authReducer,
+  income: incomeReducer,
 });
 
 export const store = createStore(

@@ -2,6 +2,8 @@ import React from "react";
 import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
 import { useHandleNewRecord } from "../../hooks/useHandleNewRecord";
+import { addIncomeAction } from "../../actions/incomeActions";
+import { useDispatch } from "react-redux";
 
 const NewRecord = ({ page, options, color }) => {
   const quantity = useInputValue();
@@ -9,14 +11,15 @@ const NewRecord = ({ page, options, color }) => {
   const description = useInputValue();
   const category = useInputValue();
   const record = useHandleNewRecord;
+  const dispatch = useDispatch();
 
   const handleNewRecord = (e) => {
     e.preventDefault();
     const data = record(quantity, date, description, category);
     switch (page) {
       case "Ingreso":
-        console.log("Ingresando datos a ingresos");
-        console.log(data);
+        dispatch(addIncomeAction(data));
+        console.log("Subiendo datos al Store...");
         break;
       case "Gasto fijo":
         console.log("Ingresando datos a gasto fijos");
