@@ -1,7 +1,20 @@
 import React from "react";
 import "./styles.css";
+import useInputValue from "../../hooks/useInputValue";
+import { useHandleNewRecord } from "../../hooks/useHandleNewRecord";
 
-const NewRecord = ({ page, options, color }) => {
+const NewRecord = ({ page, options, color, section }) => {
+  const quantity = useInputValue();
+  const date = useInputValue();
+  const description = useInputValue();
+  const category = useInputValue();
+  const record = useHandleNewRecord;
+
+  const handleNewRecord = (e) => {
+    e.preventDefault();
+    const data = record(quantity, date, description, category);
+    console.log(data);
+  };
   return (
     <div className="record-container">
       <div className="new-record">
@@ -9,7 +22,7 @@ const NewRecord = ({ page, options, color }) => {
         <p className={`new-record__subtitle ${color}-color`}>
           Debe tener un valor mayor que 0
         </p>
-        <form action="" className="new-record__form">
+        <form onSubmit={handleNewRecord} action="" className="new-record__form">
           <div className={`input-container ${color}-input-color`}>
             <img src="" alt="" />
             <input
@@ -17,6 +30,7 @@ const NewRecord = ({ page, options, color }) => {
               type="number"
               className="input-value input-container__value"
               placeholder="Valor"
+              {...quantity}
             />
           </div>
           <div className={`input-container ${color}-input-color`}>
@@ -26,6 +40,7 @@ const NewRecord = ({ page, options, color }) => {
               type="date"
               className="input-value input-container__date"
               placeholder="Fecha"
+              {...date}
             />
           </div>
           <div className={`input-container ${color}-input-color`}>
@@ -35,6 +50,7 @@ const NewRecord = ({ page, options, color }) => {
               type="text"
               className="input-value input-container__description"
               placeholder="Descripción"
+              {...description}
             />
           </div>
           <div className={`input-container ${color}-input-color`}>
@@ -44,6 +60,7 @@ const NewRecord = ({ page, options, color }) => {
               type="select"
               className="input-value input-container__category"
               placeholder="Categoria"
+              {...category}
             >
               {options.map((option) => {
                 return (

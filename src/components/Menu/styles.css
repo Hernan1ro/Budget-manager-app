@@ -34,8 +34,11 @@
 .header-container__icon {
   width: 80px;
   height: 50px;
-  display: none;
   cursor: pointer;
+  display: none;
+}
+.hidden-icon {
+  display: hidden;
 }
 
 @media screen and (max-width: 600px) {

@@ -6,21 +6,27 @@ import { authUpdate } from "../../actions/authActions";
 import { useDispatch } from "react-redux";
 
 const Menu = () => {
+  const [isLoading, setIsloading] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState((state = false) => !state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     const auth = getAuth();
-    console.log(auth);
+    setIsloading(true);
     signOut(auth)
       .then(() => {
         alert("Signout exitosamente");
         dispatch(authUpdate(false));
         navigate("/");
+        setIsloading(false);
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+  const showMenu = () => {
+    setIsVisible(true);
   };
   return (
     <header className="header-container">
@@ -50,8 +56,9 @@ const Menu = () => {
         </li>
       </ul>
       <img
+        onClick={showMenu}
         alt="Menu icon"
-        className="header-container__icon"
+        className="header-container__icon hidden-icon"
         src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-menu-user-interface-kmg-design-flat-kmg-design.png"
       />
     </header>
