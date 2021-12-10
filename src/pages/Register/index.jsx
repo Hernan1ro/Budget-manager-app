@@ -24,11 +24,13 @@ const Register = () => {
       alert("Tu contraseña debe tener al menos 6 caracteres");
     } else if (testEmail && password.value.length >= 6) {
       dispatch(
-        registroEmailPasswordNombre(email.value, password.value, name.value)
+        registroEmailPasswordNombre(
+          email.value,
+          password.value,
+          name.value,
+          navigate
+        )
       );
-      dispatch(authUpdate(true));
-      alert("Registro exitoso");
-      navigate("/general");
     }
   };
 

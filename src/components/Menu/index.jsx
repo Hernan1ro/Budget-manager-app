@@ -1,26 +1,14 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
-import { getAuth, signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { authUpdate } from "../../actions/authActions";
+import { SignOutAction } from "../../actions/actionsSignOut";
 
 const Menu = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSignOut = () => {
-    const auth = getAuth();
-    console.log(auth);
-    signOut(auth)
-      .then(() => {
-        alert("Signout exitosamente");
-        dispatch(authUpdate(false));
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    SignOutAction(navigate);
   };
   return (
     <header className="header-container">

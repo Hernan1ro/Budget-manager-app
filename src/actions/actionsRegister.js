@@ -4,16 +4,19 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
-export const registroEmailPasswordNombre = (email, password, name) => {
+export const registroEmailPasswordNombre = (
+  email,
+  password,
+  name,
+  navigate
+) => {
   return (dispatch) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(async ({ user }) => {
         await updateProfile(auth.currentUser, { displayName: name });
         dispatch(registerSincrono(user.email, user.uid, user.displayName));
-        let navigate = useNavigate();
         navigate("/general");
       })
       .catch((e) => {
