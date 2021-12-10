@@ -3,7 +3,7 @@ import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
 import { useHandleNewRecord } from "../../hooks/useHandleNewRecord";
 
-const NewRecord = ({ page, options, color, section }) => {
+const NewRecord = ({ page, options, color }) => {
   const quantity = useInputValue();
   const date = useInputValue();
   const description = useInputValue();
@@ -13,7 +13,22 @@ const NewRecord = ({ page, options, color, section }) => {
   const handleNewRecord = (e) => {
     e.preventDefault();
     const data = record(quantity, date, description, category);
-    console.log(data);
+    switch (page) {
+      case "Ingreso":
+        console.log("Ingresando datos a ingresos");
+        console.log(data);
+        break;
+      case "Gasto fijo":
+        console.log("Ingresando datos a gasto fijos");
+        console.log(data);
+        break;
+      case "Gasto hormiga":
+        console.log("Ingresando datos a datos hormiga");
+        console.log(data);
+        break;
+      default:
+        break;
+    }
   };
   return (
     <div className="record-container">
