@@ -13,3 +13,10 @@ export const removeIncomeAction = (state) => {
     payload: state,
   };
 };
+
+export const editIncomeAction = (state) => {
+  return {
+    type: types.editIncome,
+    payload: state,
+  };
+};

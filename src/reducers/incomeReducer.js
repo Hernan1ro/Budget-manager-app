@@ -10,3 +10,17 @@ export const incomeReducer = (state = [], action) => {
       return state;
   }
 };
+
+let INITIAL_STATE = {
+  editMode: false,
+  id: "",
+};
+
+export const editIncomeReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case types.editIncome:
+      return (state = action.payload);
+    default:
+      return state;
+  }
+};

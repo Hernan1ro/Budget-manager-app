@@ -6,3 +6,10 @@ export const addExpenseAction = (state) => {
     payload: state,
   };
 };
+
+export const removeAntExpenseAction = (state) => {
+  return {
+    type: types.removeAntExpense,
+    payload: state,
+  };
+};

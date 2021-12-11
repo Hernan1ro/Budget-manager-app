@@ -5,9 +5,12 @@ import { useHandleNewRecord } from "../../hooks/useHandleNewRecord";
 import { addIncomeAction } from "../../actions/incomeActions";
 import { addFixedExpenseAction } from "../../actions/expensesActions";
 import { addExpenseAction } from "../../actions/actionsAntExpense";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const NewRecord = ({ page, options, color }) => {
+  const edit = useSelector((state) => state.editIncome);
+  console.log(edit.editMode);
+
   const quantity = useInputValue();
   const date = useInputValue();
   const description = useInputValue();
@@ -18,20 +21,25 @@ const NewRecord = ({ page, options, color }) => {
 
   const handleNewRecord = (e) => {
     e.preventDefault();
-    const data = record(quantity, date, description, category);
-
-    switch (page) {
-      case "Ingreso":
-        dispatch(addIncomeAction(data));
-        break;
-      case "Gasto fijo":
-        dispatch(addFixedExpenseAction(data));
-        break;
-      case "Gasto hormiga":
-        dispatch(addExpenseAction(data));
-        break;
-      default:
-        break;
+    if (edit.editMode) {
+      console.log("Modo edición activado");
+      console.log(edit.id);
+      description.value = "Hola mi perro";
+    } else {
+      const data = record(quantity, date, description, category);
+      switch (page) {
+        case "Ingreso":
+          dispatch(addIncomeAction(data));
+          break;
+        case "Gasto fijo":
+          dispatch(addFixedExpenseAction(data));
+          break;
+        case "Gasto hormiga":
+          dispatch(addExpenseAction(data));
+          break;
+        default:
+          break;
+      }
     }
   };
   return (
@@ -91,7 +99,7 @@ const NewRecord = ({ page, options, color }) => {
             </select>
           </div>
           <button className={`${color}-button`} type="submit">
-            Agregar {page}
+            {!edit.editMode ? `Agregar ${page}` : "Guardar cambios"}
           </button>
         </form>
       </div>

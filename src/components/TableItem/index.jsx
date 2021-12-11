@@ -1,18 +1,21 @@
 import React from "react";
 import { removeIncomeAction } from "../../actions/incomeActions";
+import { removeAntExpenseAction } from "../../actions/actionsAntExpense";
+import { removeExpenseAction } from "../../actions/expensesActions";
 import { useDispatch } from "react-redux";
 import "./styles.css";
 
 const TableItem = ({ category, date, description, value, id }) => {
   const dispatch = useDispatch();
-  const [editMode, setEditMode] = React.useState(false);
-
   const handleDelete = (id) => {
     dispatch(removeIncomeAction(id));
+    dispatch(removeAntExpenseAction(id));
+    dispatch(removeExpenseAction(id));
     console.log("Borrando registro" + id);
   };
   const handleEdit = (id) => {
-    setEditMode(true);
+    const data = { editMode: true, id };
+    dispatch();
   };
 
   return (

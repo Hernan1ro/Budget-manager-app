@@ -6,3 +6,10 @@ export const addFixedExpenseAction = (state) => {
     payload: state,
   };
 };
+
+export const removeExpenseAction = (state) => {
+  return {
+    type: types.removeExpense,
+    payload: state,
+  };
+};

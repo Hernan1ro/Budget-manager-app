@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 const MonthArrow = ({ color, page }) => {
-  let tableHeading = "Hola";
+  let tableHeading = "";
 
   switch (page) {
     case "Ingreso":

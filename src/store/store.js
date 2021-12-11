@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { loginReducer } from "../reducers/loginReducer";
 import { registerReducer } from "../reducers/registerReducer";
 import { authReducer } from "../reducers/authReducer";
-import { incomeReducer } from "../reducers/incomeReducer";
+import { incomeReducer, editIncomeReducer } from "../reducers/incomeReducer";
 import { addExpenseReducer } from "../reducers/fixedExpensesReducers";
 import { addAntExpenseReducer } from "../reducers/antExpensesReducers";
 
@@ -17,6 +17,7 @@ const reducers = combineReducers({
   register: registerReducer,
   auth: authReducer,
   income: incomeReducer,
+  editIncome: editIncomeReducer,
   expense: addExpenseReducer,
   antExpense: addAntExpenseReducer,
 });
