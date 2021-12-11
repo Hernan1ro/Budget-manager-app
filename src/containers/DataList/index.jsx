@@ -8,6 +8,7 @@ const DataList = ({ color, page }) => {
   let data;
   const ingresos = useSelector((state) => state.income);
   const expenses = useSelector((state) => state.expense);
+  const antExpenses = useSelector((state) => state.antExpense);
 
   switch (page) {
     case "Ingreso":
@@ -20,6 +21,7 @@ const DataList = ({ color, page }) => {
       break;
     case "Gasto hormiga":
       console.log("Obteniendo datos de gasto hormiga");
+      data = antExpenses;
       break;
     default:
       break;
@@ -42,7 +44,6 @@ const DataList = ({ color, page }) => {
           <tbody className="data-table__item">
             {data.map((data) => {
               const { category, date, description, value, id } = data;
-              console.log(category);
               return (
                 <TableItem
                   key={id}

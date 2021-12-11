@@ -3,7 +3,8 @@ import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
 import { useHandleNewRecord } from "../../hooks/useHandleNewRecord";
 import { addIncomeAction } from "../../actions/incomeActions";
-import { addFixedExpenseAction } from "../../";
+import { addFixedExpenseAction } from "../../actions/expensesActions";
+import { addExpenseAction } from "../../actions/actionsAntExpense";
 import { useDispatch } from "react-redux";
 
 const NewRecord = ({ page, options, color }) => {
@@ -22,15 +23,12 @@ const NewRecord = ({ page, options, color }) => {
     switch (page) {
       case "Ingreso":
         dispatch(addIncomeAction(data));
-        console.log("Subiendo datos al Store...");
         break;
       case "Gasto fijo":
         dispatch(addFixedExpenseAction(data));
-        console.log("Ingresando datos a gasto fijos");
         break;
       case "Gasto hormiga":
-        console.log("Ingresando datos a datos hormiga");
-        console.log(data);
+        dispatch(addExpenseAction(data));
         break;
       default:
         break;
