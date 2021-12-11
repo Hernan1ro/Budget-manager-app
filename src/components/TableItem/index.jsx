@@ -5,7 +5,7 @@ import { removeExpenseAction } from "../../actions/expensesActions";
 import { useDispatch } from "react-redux";
 import "./styles.css";
 
-const TableItem = ({ category, date, description, value, id }) => {
+const TableItem = ({ category, date, description, value, id, page }) => {
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     dispatch(removeIncomeAction(id));
@@ -15,7 +15,21 @@ const TableItem = ({ category, date, description, value, id }) => {
   };
   const handleEdit = (id) => {
     const data = { editMode: true, id };
-    dispatch();
+    console.log("Modo edición activado");
+
+    switch (page) {
+      case "Ingreso":
+        console.log("Editando ingresos");
+        break;
+      case "Gasto fijo":
+        console.log("Editando Gastos fijos");
+        break;
+      case "Gasto hormiga":
+        console.log("Editando Gasto hormiga");
+        break;
+      default:
+        break;
+    }
   };
 
   return (

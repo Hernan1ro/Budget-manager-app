@@ -49,6 +49,7 @@ const DataList = ({ color, page }) => {
                   date={date}
                   description={description}
                   value={value}
+                  page={page}
                 />
               );
             })}
