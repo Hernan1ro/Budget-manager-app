@@ -47,6 +47,7 @@ const DataList = ({ color, page }) => {
               return (
                 <TableItem
                   key={id}
+                  id={id}
                   category={category}
                   date={date}
                   description={description}

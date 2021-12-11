@@ -3,6 +3,7 @@ export const types = {
   register: "register",
   auth: "auth",
   addIncome: "income",
+  removeIncome: "removeIncome",
   addAntExpense: "AntExpense",
   addFixedExpense: "FixedExpense",
 };

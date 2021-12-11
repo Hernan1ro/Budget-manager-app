@@ -1,7 +1,14 @@
 import React from "react";
+import { removeIncomeAction } from "../../actions/incomeActions";
+import { useDispatch } from "react-redux";
 import "./styles.css";
 
-const TableItem = ({ category, date, description, value }) => {
+const TableItem = ({ category, date, description, value, id }) => {
+  const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch(removeIncomeAction(id));
+    console.log("Borrando registro" + id);
+  };
   return (
     <tr>
       <td className="data-situation">
@@ -24,7 +31,12 @@ const TableItem = ({ category, date, description, value }) => {
         <div className="data-actions__container">
           <i className="fas fa-pencil-alt"></i>
           <i className="fas fa-paperclip"></i>
-          <i className="far fa-trash-alt"></i>
+          <i
+            onClick={() => {
+              handleDelete(id);
+            }}
+            className="far fa-trash-alt"
+          ></i>
           <i className="fas fa-ellipsis-v"></i>
         </div>
       </td>

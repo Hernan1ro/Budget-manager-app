@@ -6,3 +6,10 @@ export const addIncomeAction = (state) => {
     payload: state,
   };
 };
+
+export const removeIncomeAction = (state) => {
+  return {
+    type: types.removeIncome,
+    payload: state,
+  };
+};
