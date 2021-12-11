@@ -12,7 +12,7 @@ const General = () => {
         <div className="resume-container">
           <div className="text-container">
             <h1 className="text-container__title">
-              Resumen de tus <br /> movimientos{" "}
+              Resumen de tus <br /> movimientos
             </h1>
             <h3 className="text-container__subtitle">
               Este análisis está enfocado en tus registros mensuales

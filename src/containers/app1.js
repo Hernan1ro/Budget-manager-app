@@ -17,7 +17,7 @@ const data = [
   },
   {
     name: "Gastos fijos",
-    costoFijos: 0,
+    gastosFijos: 0,
     keystroke: 1000,
   },
   {
@@ -28,20 +28,25 @@ const data = [
 ];
 
 function App() {
-  const antExpenses = useSelector((state) => state.antExpense);
-  const income = useSelector((state) => state.income);
-  const fixedExpenses = useSelector((state) => state.fixedExpense);
+  const antExpenses = useSelector((state) => state.antExpense) || 100;
+  const income = useSelector((state) => state.income) || 200;
+  const fixedExpenses = useSelector((state) => state.expense) || 300;
+  console.log(antExpenses);
+  fixedExpenses.forEach((expense) => console.log(expense.value));
 
-  const totalAntExpense = antExpenses.reduce((sum, item) => sum + item.value);
-  const totalFixedExpense = fixedExpenses.reduce(
-    (sum, item) => sum + item.value
-  );
-  const totalIncome = income.reduce((sum, item) => sum + item.value);
+  function getSum(total, num) {
+    return total + num.value;
+  }
+  const totalAntExpenses = antExpenses.reduce(getSum, 0);
+  const totalIncome = income.reduce(getSum, 0);
+  const totalExpenses = fixedExpenses.reduce(getSum, 0);
 
-  data[0].ingresos = totalAntExpense;
-  data[1].ingresos = totalFixedExpense;
+  console.log(totalExpenses);
+  data[0].gastosHormiga = totalAntExpenses;
+  data[1].gastosFijos = totalExpenses;
   data[2].ingresos = totalIncome;
 
+  console.log(data[1]);
   return (
     <ResponsiveContainer width="90%">
       <BarChart width={500} height={300} data={data}>
@@ -50,7 +55,7 @@ function App() {
         <YAxis></YAxis>
         <Tooltip></Tooltip>
         <Bar dataKey="ingresos" fill="green"></Bar>
-        <Bar dataKey="costoFijos" fill="red"></Bar>
+        <Bar dataKey="gastosFijos" fill="red"></Bar>
         <Bar dataKey="gastosHormiga" fill="orange"></Bar>
       </BarChart>
     </ResponsiveContainer>
