@@ -4,6 +4,7 @@ import { loginReducer } from "../reducers/loginReducer";
 import { registerReducer } from "../reducers/registerReducer";
 import { authReducer } from "../reducers/authReducer";
 import { incomeReducer } from "../reducers/incomeReducer";
+import { addExpenseReducer } from "../reducers/fixedExpensesReducers";
 
 const composeEnhancers =
   (typeof window !== "undefined" &&
@@ -15,6 +16,7 @@ const reducers = combineReducers({
   register: registerReducer,
   auth: authReducer,
   income: incomeReducer,
+  expense: addExpenseReducer,
 });
 
 export const store = createStore(

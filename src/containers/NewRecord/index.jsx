@@ -3,6 +3,7 @@ import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
 import { useHandleNewRecord } from "../../hooks/useHandleNewRecord";
 import { addIncomeAction } from "../../actions/incomeActions";
+import { addFixedExpenseAction } from "../../";
 import { useDispatch } from "react-redux";
 
 const NewRecord = ({ page, options, color }) => {
@@ -10,20 +11,22 @@ const NewRecord = ({ page, options, color }) => {
   const date = useInputValue();
   const description = useInputValue();
   const category = useInputValue();
+
   const record = useHandleNewRecord;
   const dispatch = useDispatch();
 
   const handleNewRecord = (e) => {
     e.preventDefault();
     const data = record(quantity, date, description, category);
+
     switch (page) {
       case "Ingreso":
         dispatch(addIncomeAction(data));
         console.log("Subiendo datos al Store...");
         break;
       case "Gasto fijo":
+        dispatch(addFixedExpenseAction(data));
         console.log("Ingresando datos a gasto fijos");
-        console.log(data);
         break;
       case "Gasto hormiga":
         console.log("Ingresando datos a datos hormiga");

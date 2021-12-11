@@ -2,11 +2,12 @@ import React from "react";
 import "./styles.css";
 import MonthArrow from "../../components/MonthArrow";
 import TableItem from "../../components/TableItem";
-import { useSelector, useStore } from "react-redux";
+import { useSelector } from "react-redux";
 
 const DataList = ({ color, page }) => {
   let data;
   const ingresos = useSelector((state) => state.income);
+  const expenses = useSelector((state) => state.expense);
 
   switch (page) {
     case "Ingreso":
@@ -15,6 +16,7 @@ const DataList = ({ color, page }) => {
       break;
     case "Gasto fijo":
       console.log("Obteniendo datos de costo fijos");
+      data = expenses;
       break;
     case "Gasto hormiga":
       console.log("Obteniendo datos de gasto hormiga");
