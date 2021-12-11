@@ -5,10 +5,16 @@ import "./styles.css";
 
 const TableItem = ({ category, date, description, value, id }) => {
   const dispatch = useDispatch();
+  const [editMode, setEditMode] = React.useState(false);
+
   const handleDelete = (id) => {
     dispatch(removeIncomeAction(id));
     console.log("Borrando registro" + id);
   };
+  const handleEdit = (id) => {
+    setEditMode(true);
+  };
+
   return (
     <tr>
       <td className="data-situation">
@@ -29,15 +35,18 @@ const TableItem = ({ category, date, description, value, id }) => {
       <td className="data-value">$ {value}</td>
       <td className="data-actions">
         <div className="data-actions__container">
-          <i className="fas fa-pencil-alt"></i>
-          <i className="fas fa-paperclip"></i>
+          <i
+            onClick={() => {
+              handleEdit(id);
+            }}
+            className="fas fa-pencil-alt"
+          ></i>
           <i
             onClick={() => {
               handleDelete(id);
             }}
             className="far fa-trash-alt"
           ></i>
-          <i className="fas fa-ellipsis-v"></i>
         </div>
       </td>
     </tr>

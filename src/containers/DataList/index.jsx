@@ -12,15 +12,12 @@ const DataList = ({ color, page }) => {
 
   switch (page) {
     case "Ingreso":
-      console.log("Obteniendo datos de ingreso");
       data = ingresos;
       break;
     case "Gasto fijo":
-      console.log("Obteniendo datos de costo fijos");
       data = expenses;
       break;
     case "Gasto hormiga":
-      console.log("Obteniendo datos de gasto hormiga");
       data = antExpenses;
       break;
     default:
@@ -28,7 +25,7 @@ const DataList = ({ color, page }) => {
   }
   return (
     <div className="records-list">
-      <MonthArrow color={color} />
+      <MonthArrow color={color} page={page} />
       <div className="records-list__data">
         <table className="data-table">
           <thead className="heading-table">

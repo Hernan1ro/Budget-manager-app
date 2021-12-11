@@ -31,8 +31,6 @@ function App() {
   const antExpenses = useSelector((state) => state.antExpense) || 100;
   const income = useSelector((state) => state.income) || 200;
   const fixedExpenses = useSelector((state) => state.expense) || 300;
-  console.log(antExpenses);
-  fixedExpenses.forEach((expense) => console.log(expense.value));
 
   function getSum(total, num) {
     return total + num.value;
@@ -41,12 +39,10 @@ function App() {
   const totalIncome = income.reduce(getSum, 0);
   const totalExpenses = fixedExpenses.reduce(getSum, 0);
 
-  console.log(totalExpenses);
   data[0].gastosHormiga = totalAntExpenses;
   data[1].gastosFijos = totalExpenses;
   data[2].ingresos = totalIncome;
 
-  console.log(data[1]);
   return (
     <ResponsiveContainer width="90%">
       <BarChart width={500} height={300} data={data}>
