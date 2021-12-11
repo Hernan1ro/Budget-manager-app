@@ -2,8 +2,26 @@ import React from "react";
 import "./styles.css";
 import MonthArrow from "../../components/MonthArrow";
 import TableItem from "../../components/TableItem";
+import { useSelector, useStore } from "react-redux";
 
-const DataList = ({ color }) => {
+const DataList = ({ color, page }) => {
+  let data;
+  const ingresos = useSelector((state) => state.income);
+
+  switch (page) {
+    case "Ingreso":
+      console.log("Obteniendo datos de ingreso");
+      data = ingresos;
+      break;
+    case "Gasto fijo":
+      console.log("Obteniendo datos de costo fijos");
+      break;
+    case "Gasto hormiga":
+      console.log("Obteniendo datos de gasto hormiga");
+      break;
+    default:
+      break;
+  }
   return (
     <div className="records-list">
       <MonthArrow color={color} />
@@ -20,7 +38,19 @@ const DataList = ({ color }) => {
             </tr>
           </thead>
           <tbody className="data-table__item">
-            <TableItem />
+            {data.map((data) => {
+              const { category, date, description, value, id } = data;
+              console.log(category);
+              return (
+                <TableItem
+                  key={id}
+                  category={category}
+                  date={date}
+                  description={description}
+                  value={value}
+                />
+              );
+            })}
           </tbody>
         </table>
       </div>

@@ -1,25 +1,25 @@
 import React from "react";
 import "./styles.css";
 
-const TableItem = () => {
+const TableItem = ({ category, date, description, value }) => {
   return (
     <tr>
       <td className="data-situation">
         <i className="fas fa-check-circle"></i>
       </td>
       <td className="data-date">
-        <p>17/11/2002</p>
+        <p>{date}</p>
       </td>
       <td className="data-description">
-        <p>Se registraron datos...</p>
+        <p>{description}</p>
       </td>
       <td className="data-category">
         <div className="data-category__container">
           <i className="fas fa-umbrella-beach"></i>
-          <p>Recreación</p>
+          <p>{category}</p>
         </div>
       </td>
-      <td className="data-value">$20000</td>
+      <td className="data-value">$ {value}</td>
       <td className="data-actions">
         <div className="data-actions__container">
           <i className="fas fa-pencil-alt"></i>
