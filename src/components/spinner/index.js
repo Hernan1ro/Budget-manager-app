@@ -4,49 +4,85 @@ const Spinner = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      style="margin:auto;background:#f1f2f3;display:block"
-      width="200"
-      height="200"
+      style={{ margin: "auto", background: "#f1f2f3", display: "block" }}
+      width={200}
+      height={200}
       viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid"
     >
-      <defs>
-        <clipPath id="a">
-          <path d="M0 0h100v82.235H0z" />
-        </clipPath>
-      </defs>
-      <path
-        stroke="#dcdcdc"
-        fill="#dcdcdc"
-        d="M85.529 75.177H14.471A4.471 4.471 0 0 0 10 79.648h80a4.471 4.471 0 0 0-4.471-4.471z"
-      />
-      <g clip-path="url(#a)">
-        <animateTransform
-          attributeName="transform"
-          type="translate"
-          repeatCount="indefinite"
-          dur="1s"
-          values="0 0;0 150"
-          keyTimes="0;1"
-        />
-        <path
-          fill="#d9e3d6"
-          d="M50-50c-13.785 0-25 11.215-25 25S36.215 0 50 0s25-11.216 25-25-11.216-25-25-25zm0 45.845c-11.494 0-20.844-9.351-20.844-20.845S38.506-45.845 50-45.845 70.845-36.494 70.845-25 61.493-4.155 50-4.155z"
-        />
-        <path
-          fill="#3dfe25"
-          d="M50-45.845c-11.494 0-20.844 9.351-20.844 20.844S38.506-4.155 50-4.155 70.845-13.507 70.845-25 61.493-45.845 50-45.845z"
-        />
-        <path
-          fill="#4dc816"
-          d="M48.11-12.204v-1.64a16.395 16.395 0 0 1-4.281-.765 2.056 2.056 0 0 1-1.342-2.469l.043-.167c.297-1.158 1.521-1.781 2.653-1.395 1.152.392 2.465.662 3.855.662 2.032 0 3.421-.783 3.421-2.21 0-1.354-1.14-2.21-3.778-3.101-3.814-1.283-6.416-3.066-6.416-6.523 0-3.137 2.211-5.596 6.025-6.345v-1.639a1.746 1.746 0 1 1 3.492 0v1.39c1.275.057 2.327.226 3.21.459a2.07 2.07 0 0 1 1.498 2.513c-.287 1.118-1.44 1.803-2.546 1.473a10.943 10.943 0 0 0-3.16-.453c-2.317 0-3.066.998-3.066 1.997 0 1.176 1.247 1.924 4.277 3.065 4.241 1.498 5.953 3.458 5.953 6.666 0 3.173-2.246 5.882-6.345 6.594v1.89c0 .965-.782 1.746-1.746 1.746h-.001a1.748 1.748 0 0 1-1.746-1.748z"
-        />
+      <clipPath id="a">
+        <path d="M0-40.5a40.5 40.5 0 0 1 0 81 40.5 40.5 0 0 1 0-81M23.5-1v2h7v-2Z" />
+      </clipPath>
+      <g transform="translate(50 50)" fill="none" strokeWidth={5}>
+        <circle
+          clipPath="url(#a)"
+          r={26}
+          stroke="#00b30c"
+          strokeDasharray="40.840704496667314 0 0 0 0 163.36281798666926"
+        >
+          <animate
+            attributeName="stroke-dasharray"
+            dur="1s"
+            repeatCount="indefinite"
+            begin="-0.1s"
+            keyTimes="0;0.2;0.4;0.6;0.8;1"
+            values="0 0 0 0 0 163.36281798666926; 0 0 0 0 0 163.36281798666926; 0 0 81.68140899333463 0 0 163.36281798666926; 0 0 163.36281798666926 0 0 163.36281798666926; 0 0 81.68140899333463 0 0 163.36281798666926; 0 0 0 0 0 163.36281798666926"
+          />
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            dur="1s"
+            repeatCount="indefinite"
+            begin="-0.1s"
+            values="0;0;0;0;180;360"
+          />
+        </circle>
+        <circle
+          r={32}
+          stroke="#ff8101"
+          strokeDasharray="100.53096491487338 0 0 201.06192982974676"
+        >
+          <animate
+            attributeName="stroke-dasharray"
+            dur="1s"
+            repeatCount="indefinite"
+            begin="0s"
+            values="0 0 0 0 0 201.06192982974676; 0 0 100.53096491487338 0 0 201.06192982974676; 0 0 100.53096491487338 0 0 201.06192982974676; 0 0 100.53096491487338 0 0 201.06192982974676; 0 0 100.53096491487338 0 0 201.06192982974676; 0 0 0 0 0 201.06192982974676"
+          />
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            dur="1s"
+            repeatCount="indefinite"
+            begin="0s"
+            values="0;0;0;180;180;360"
+          />
+        </circle>
+        <circle
+          r={38}
+          stroke="#f71000"
+          strokeDasharray="119.38052083641213 0 0 238.76104167282426"
+          transform="rotate(45)"
+        >
+          <animate
+            attributeName="stroke-dasharray"
+            dur="1s"
+            repeatCount="indefinite"
+            begin="0s"
+            keyTimes="0;0.06;0.1;0.3;0.45;0.5;0.7;0.90;1"
+            values="0 0 89.5353906273091 0 0 238.76104167282426; 0 0 89.5353906273091 0 0 238.76104167282426; 0 0 119.38052083641213 0 0 238.76104167282426; 0 0 119.38052083641213 0 0 238.76104167282426; 0 0 29.845130209103033 0 0 238.76104167282426; 0 0 29.845130209103033 0 0 238.76104167282426; 0 0 119.38052083641213 0 0 238.76104167282426; 0 0 119.38052083641213 0 0 238.76104167282426; 0 0 89.5353906273091 0 0 238.76104167282426"
+          />
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            dur="1s"
+            repeatCount="indefinite"
+            begin="0s"
+            keyTimes="0;0.06;0.1;0.3;0.5;0.6;0.8;0.90;1"
+            values="-60;0;0;0;180;180;180;180;300"
+          />
+        </circle>
       </g>
-      <path
-        stroke="#dcdcdc"
-        fill="#dcdcdc"
-        d="M14.471 84.823h71.058A4.471 4.471 0 0 0 90 80.352v-.704H10v.704a4.471 4.471 0 0 0 4.471 4.471z"
-      />
     </svg>
   );
 };
