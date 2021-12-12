@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
 import Header from "../../components/Header/";
+import logo from "../../Assets/logo/FinAntApp3.png";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Header />
       <main>
         <div className="main-container">
+          <img src={logo} alt="home-logo" className="home-logo" />
           <h1 className="main-container__title">
             TOMA CONTROL DE TUS GASTOS HORMIGAS
           </h1>

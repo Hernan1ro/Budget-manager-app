@@ -7,4 +7,19 @@
   right: 0;
   display: flex;
   z-index: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-logo {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  width: 30rem;
+  margin-bottom: 23rem;
+}
+
+.spinner-icon {
+  margin: 0 auto;
 }

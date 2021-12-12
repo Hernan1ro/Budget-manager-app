@@ -16,7 +16,6 @@ import Spinner from "../../components/spinner2";
 const Login = () => {
   const objectiveAlert = withReactContent(Swal);
   const isLoading = useSelector((state) => state.loading);
-  console.log("Está cargando?", isLoading);
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const email = useInputValue();

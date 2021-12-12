@@ -12,6 +12,13 @@ body {
 .main-container {
   padding: 3rem;
 }
+.home-logo {
+  margin: 0 auto;
+  display: block;
+  height: 18rem;
+  margin-bottom: 2rem;
+  height: 8rem;
+}
 .main-container__title,
 .main-container__subtitle,
 .main-container__phrase {
@@ -75,6 +82,7 @@ body {
 .form__button:hover {
   background-color: var(--light-orange);
 }
+
 @media screen and (max-width: 600px) {
   main {
     margin-left: 5%;
@@ -97,5 +105,8 @@ body {
   .form__button {
     margin-left: 0;
     width: 100%;
+  }
+  .home-logo {
+    height: 5rem;
   }
 }
