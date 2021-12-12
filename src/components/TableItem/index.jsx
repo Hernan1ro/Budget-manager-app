@@ -3,16 +3,18 @@ import { removeIncomeAction } from "../../actions/incomeActions";
 import { removeAntExpenseAction } from "../../actions/actionsAntExpense";
 import { removeExpenseAction } from "../../actions/expensesActions";
 import { useDispatch } from "react-redux";
+import { editIncomeAction } from "../../actions/incomeActions";
 import "./styles.css";
 
 const TableItem = ({ category, date, description, value, id, page }) => {
   const dispatch = useDispatch();
+
   const handleDelete = (id) => {
     dispatch(removeIncomeAction(id));
     dispatch(removeAntExpenseAction(id));
     dispatch(removeExpenseAction(id));
-    console.log("Borrando registro" + id);
   };
+
   const handleEdit = (id) => {
     const data = { editMode: true, id };
     console.log("Modo edición activado");
@@ -20,6 +22,7 @@ const TableItem = ({ category, date, description, value, id, page }) => {
     switch (page) {
       case "Ingreso":
         console.log("Editando ingresos");
+        dispatch(editIncomeAction(data));
         break;
       case "Gasto fijo":
         console.log("Editando Gastos fijos");

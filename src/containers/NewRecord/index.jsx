@@ -6,10 +6,11 @@ import { addIncomeAction } from "../../actions/incomeActions";
 import { addFixedExpenseAction } from "../../actions/expensesActions";
 import { addExpenseAction } from "../../actions/actionsAntExpense";
 import { useDispatch, useSelector } from "react-redux";
+import { editIncomeAction } from "../../actions/incomeActions";
 
-const NewRecord = ({ page, options, color }) => {
-  const edit = useSelector((state) => state.editIncome);
-  console.log(edit.editMode);
+const NewRecord = ({ page, options, color, btnSave }) => {
+  const income = useSelector((state) => state.editIncome);
+  const incomeList = useSelector((state) => state.income);
 
   const quantity = useInputValue();
   const date = useInputValue();
@@ -19,14 +20,25 @@ const NewRecord = ({ page, options, color }) => {
   const record = useHandleNewRecord;
   const dispatch = useDispatch();
 
+  const editIncome = () => {
+    const { id, editMode } = income;
+    if (editMode) {
+      const editObject = incomeList.filter((data) => data.id === id);
+      const { category, date, description, value } = editObject;
+    }
+  };
+  editIncome();
+
   const handleNewRecord = (e) => {
     e.preventDefault();
-    if (edit.editMode) {
-      console.log("Modo edición activado");
-      console.log(edit.id);
-      description.value = "Hola mi perro";
+
+    //comprobación el modo edición
+    if (income.editMode) {
+      console.log("Apagando modo edición");
+      dispatch(editIncomeAction({ editMode: false, id: "" }));
     } else {
       const data = record(quantity, date, description, category);
+      console.log(data);
       switch (page) {
         case "Ingreso":
           dispatch(addIncomeAction(data));
@@ -99,7 +111,7 @@ const NewRecord = ({ page, options, color }) => {
             </select>
           </div>
           <button className={`${color}-button`} type="submit">
-            {!edit.editMode ? `Agregar ${page}` : "Guardar cambios"}
+            {btnSave}
           </button>
         </form>
       </div>

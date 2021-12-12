@@ -6,6 +6,13 @@ import DataList from "../../containers/DataList";
 import "./styles.css";
 
 const FixedExpenses = () => {
+  let btnSave = "Agregar nuevo ingreso";
+  const income = false;
+  if (income.editMode) {
+    btnSave = "Guardar cambios";
+  } else {
+    btnSave = "Agregar nuevo ingreso";
+  }
   const options = [
     "Arriendos",
     "Mercado del mes",
@@ -26,7 +33,12 @@ const FixedExpenses = () => {
     <>
       <Menu />
       <WhiteBackground>
-        <NewRecord page="Gasto fijo" options={options} color="red" />
+        <NewRecord
+          page="Gasto fijo"
+          options={options}
+          color="red"
+          btnSave={btnSave}
+        />
         <DataList color="red" page="Gasto fijo" />
       </WhiteBackground>
     </>
