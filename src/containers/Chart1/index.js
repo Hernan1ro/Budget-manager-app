@@ -16,32 +16,24 @@ const data = [
     keystroke: 1000,
   },
   {
-    name: "Gastos fijos",
-    gastosFijos: 0,
-    keystroke: 1000,
-  },
-  {
-    name: "Ingresos",
-    ingresos: 0,
+    name: "ahorros",
+    ahorros: 0,
     keystroke: 1000,
   },
 ];
 
-function App() {
+function Chart1() {
   const antExpenses = useSelector((state) => state.antExpense) || 100;
-  const income = useSelector((state) => state.income) || 200;
-  const fixedExpenses = useSelector((state) => state.expense) || 300;
+  const savings = useSelector((state) => state.monthObjectives.savings);
 
   function getSum(total, num) {
     return total + num.value;
   }
+
   const totalAntExpenses = antExpenses.reduce(getSum, 0);
-  const totalIncome = income.reduce(getSum, 0);
-  const totalExpenses = fixedExpenses.reduce(getSum, 0);
 
   data[0].gastosHormiga = totalAntExpenses;
-  data[1].gastosFijos = totalExpenses;
-  data[2].ingresos = totalIncome;
+  data[1].ahorros = savings;
 
   return (
     <ResponsiveContainer width="90%">
@@ -50,12 +42,11 @@ function App() {
         <XAxis dataKey="name"></XAxis>
         <YAxis></YAxis>
         <Tooltip></Tooltip>
-        <Bar dataKey="ingresos" fill="green"></Bar>
-        <Bar dataKey="gastosFijos" fill="red"></Bar>
+        <Bar dataKey="ahorros" fill="green"></Bar>
         <Bar dataKey="gastosHormiga" fill="orange"></Bar>
       </BarChart>
     </ResponsiveContainer>
   );
 }
 
-export default App;
+export default Chart1;

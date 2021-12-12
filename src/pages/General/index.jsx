@@ -2,7 +2,8 @@ import React from "react";
 import "./styles.css";
 import Menu from "../../components/Menu";
 import WhiteBackground from "../../layout/WhiteBackground";
-import App from "../../containers/app1.js";
+import GeneralChart from "../../containers/generalChart/index.js";
+import Chart1 from "../../containers/Chart1";
 
 const General = () => {
   return (
@@ -22,7 +23,24 @@ const General = () => {
             </button>
           </div>
           <div className="chart-container">
-            <App />
+            <GeneralChart />
+          </div>
+          <div className="text-container">
+            <h1 className="text-container__title--inform">
+              Gastos hormigas vs Objetivos de ahorro
+            </h1>
+            <h3 className="text-container__subtitle--inform">
+              Una buena forma de maximizar tus ahorros es disminuyendo tus
+              gastos Hormigas
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia
+              omnis quod maiores excepturi ratione aut eius exercitationem,
+              nulla aperiam quis!
+            </p>
+          </div>
+          <div className="chart-container">
+            <Chart1 />
           </div>
         </div>
       </WhiteBackground>

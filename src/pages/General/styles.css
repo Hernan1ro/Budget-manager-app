@@ -1,13 +1,14 @@
 .resume-container {
   width: 100%;
   padding: 2rem;
-  display: flex;
+  display: grid;
   padding-top: 6rem;
   text-align: center;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 4rem;
 }
 
 .text-container {
-  width: 50%;
   width: 100%;
 }
 .text-container__title {
@@ -33,9 +34,17 @@
 .chart-container {
   width: 50%;
   width: 100%;
-  /* background-color: var(--white); */
 }
-
+.text-container__title--inform {
+  font-size: 3rem;
+}
+.text-container__subtitle--inform {
+  font-size: 2rem;
+  margin: 2rem;
+}
+.text-container p {
+  font-size: 1.6rem;
+}
 @media screen and (max-width: 600px) {
   .char-container,
   .text-container {
@@ -43,7 +52,7 @@
     margin-bottom: 4rem;
   }
   .resume-container {
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
   }
   .text-container__title {
     font-size: 3rem;
