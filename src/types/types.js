@@ -2,6 +2,7 @@ export const types = {
   login: "login",
   register: "register",
   auth: "auth",
+  loading: "loading",
   addIncome: "income",
   removeIncome: "removeIncome",
   removeAntExpense: "removeAntExpense",

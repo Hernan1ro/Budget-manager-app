@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 import { google, facebook } from "../firebase/firebaseConfig";
 import { authUpdate } from "../actions/authActions";
+import { loadingAction } from "../actions/actionsLoading";
 
 export const loginEmailPassword = (email, password, navigate) => {
   return (dispatch) => {
@@ -26,11 +27,15 @@ export const loginEmailPassword = (email, password, navigate) => {
 
 export const loginGoogle = (navigate) => {
   return (dispatch) => {
+    dispatch(loadingAction(true));
+    console.log("cargando...");
     const auth = getAuth();
     signInWithPopup(auth, google)
       .then(({ user }) => {
         dispatch(authUpdate(true));
         dispatch(loginSincrono((user.uid, user.displayName)));
+        dispatch(loadingAction(false));
+        console.log("finalizando carga");
         navigate("/general");
         alert("Bienvenido", user.displayName);
       })
