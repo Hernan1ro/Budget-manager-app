@@ -4,29 +4,40 @@ import "./styles.css";
 import { getAuth, signOut } from "firebase/auth";
 import { authUpdate } from "../../actions/authActions";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const Menu = () => {
-  const [isLoading, setIsloading] = React.useState(false);
-  const [isVisible, setIsVisible] = React.useState((state = false) => !state);
+  const objectiveAlert = withReactContent(Swal);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSignOut = () => {
-    const auth = getAuth();
-    setIsloading(true);
-    signOut(auth)
-      .then(() => {
-        alert("Signout exitosamente");
-        dispatch(authUpdate(false));
-        navigate("/");
-        setIsloading(false);
+    objectiveAlert
+      .fire({
+        title: "¿Estás seguro de cerrar sesión?",
+        text: "confirma para realizar esta acción",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#00b30c",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Quiero cerrar sesión",
+        cancelButtonText: "Cancelar",
       })
-      .catch((error) => {
-        console.log(error);
+      .then((result) => {
+        if (result.isConfirmed) {
+          // Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          const auth = getAuth();
+          signOut(auth)
+            .then(() => {
+              dispatch(authUpdate(false));
+              navigate("/");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
       });
-  };
-  const showMenu = () => {
-    setIsVisible(true);
   };
   return (
     <header className="header-container">
@@ -56,7 +67,6 @@ const Menu = () => {
         </li>
       </ul>
       <img
-        onClick={showMenu}
         alt="Menu icon"
         className="header-container__icon hidden-icon"
         src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-menu-user-interface-kmg-design-flat-kmg-design.png"

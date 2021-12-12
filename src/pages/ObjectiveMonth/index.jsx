@@ -3,10 +3,13 @@ import Menu from "../../components/Menu";
 import WhiteBackground from "../../layout/WhiteBackground";
 import { useDispatch, useSelector } from "react-redux";
 import { monthObjectivesAction } from "../../actions/actionsMonthObjetives";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import "./styles.css";
 
 const ObjectiveMonth = () => {
   const form = React.useRef(null);
+  const objectiveAlert = withReactContent(Swal);
   const objectiveMonthData = useSelector((state) => state.monthObjectives);
   const { budget, expense, savings } = objectiveMonthData;
 
@@ -14,12 +17,31 @@ const ObjectiveMonth = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(form.current);
-    const useData = {
+    const userData = {
       budget: Number(formData.get("budget")),
       expense: Number(formData.get("expense")),
       savings: Number(formData.get("savings")),
     };
-    dispatch(monthObjectivesAction(useData));
+    if (
+      userData.budget === 0 ||
+      userData.expense === 0 ||
+      userData.savings === 0
+    ) {
+      objectiveAlert.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Todos los campos son obligatorios",
+      });
+    } else {
+      dispatch(monthObjectivesAction(userData));
+      objectiveAlert.fire({
+        position: "center",
+        icon: "success",
+        title: "Tus objetivos financieros han sido guardados correctamente",
+        showConfirmButton: true,
+        timer: 2500,
+      });
+    }
   };
   return (
     <>
@@ -36,7 +58,7 @@ const ObjectiveMonth = () => {
               <div className="label-container">
                 <label htmlFor="month-budget">Presupuesto Mensual</label>
                 <input
-                  placeholder={budget}
+                  placeholder={`$ ${budget}`}
                   id="month-budget"
                   name="budget"
                   type="number"
@@ -45,7 +67,7 @@ const ObjectiveMonth = () => {
               <div className="label-container">
                 <label htmlFor="month-expenses">Gasto mensual actual</label>
                 <input
-                  placeholder={expense}
+                  placeholder={`$ ${expense}`}
                   id="month-expenses"
                   name="expense"
                   type="number"
@@ -54,7 +76,7 @@ const ObjectiveMonth = () => {
               <div className="label-container">
                 <label htmlFor="average-savings">Ahorro estimado</label>
                 <input
-                  placeholder={savings}
+                  placeholder={`$ ${savings}`}
                   id="average-savings"
                   name="savings"
                   type="number"

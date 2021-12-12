@@ -7,6 +7,8 @@ import { addFixedExpenseAction } from "../../actions/expensesActions";
 import { addExpenseAction } from "../../actions/actionsAntExpense";
 import { useDispatch, useSelector } from "react-redux";
 import { editIncomeAction } from "../../actions/incomeActions";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const NewRecord = ({ page, options, color, btnSave }) => {
   const income = useSelector((state) => state.editIncome);
@@ -16,6 +18,7 @@ const NewRecord = ({ page, options, color, btnSave }) => {
   const date = useInputValue();
   const description = useInputValue();
   const category = useInputValue();
+  const objectiveAlert = withReactContent(Swal);
 
   const record = useHandleNewRecord;
   const dispatch = useDispatch();
@@ -45,7 +48,11 @@ const NewRecord = ({ page, options, color, btnSave }) => {
         data.description === "" ||
         data.category === ""
       ) {
-        alert("Todos los campos deben estar llenos");
+        objectiveAlert.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Todos los campos son obligatorios",
+        });
         return;
       }
       switch (page) {

@@ -8,8 +8,11 @@ import {
   loginGoogle,
   loginFacebook,
 } from "../../actions/actionLogin";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const Login = () => {
+  const objectiveAlert = withReactContent(Swal);
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const email = useInputValue();
@@ -18,7 +21,11 @@ const Login = () => {
   const handlelogin = (e) => {
     e.preventDefault();
     if (email.value === "" || password.value === "") {
-      alert("Ambos campos deben estar llenos");
+      objectiveAlert.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Todos los campos son obligatorios",
+      });
       return;
     }
     dispatch(loginEmailPassword(email.value, password.value, navigate));

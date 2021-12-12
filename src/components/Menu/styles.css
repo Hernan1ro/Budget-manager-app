@@ -24,6 +24,7 @@
 }
 .header--signout-btn div {
   color: var(--orange);
+  cursor: pointer;
 }
 .header-container__option a:hover {
   color: var(--white-opacity);
