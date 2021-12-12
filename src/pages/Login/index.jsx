@@ -33,7 +33,9 @@ const Login = () => {
       });
       return;
     }
-    dispatch(loginEmailPassword(email.value, password.value, navigate));
+    dispatch(
+      loginEmailPassword(email.value, password.value, navigate, objectiveAlert)
+    );
   };
   const handleGoogle = () => {
     dispatch(loginGoogle(navigate));
