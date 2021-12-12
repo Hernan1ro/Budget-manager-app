@@ -38,7 +38,16 @@ const NewRecord = ({ page, options, color, btnSave }) => {
       dispatch(editIncomeAction({ editMode: false, id: "" }));
     } else {
       const data = record(quantity, date, description, category);
-      console.log(data);
+      if (
+        data.value <= 0 ||
+        data.id === "" ||
+        data.value === "" ||
+        data.description === "" ||
+        data.category === ""
+      ) {
+        alert("Todos los campos deben estar llenos");
+        return;
+      }
       switch (page) {
         case "Ingreso":
           dispatch(addIncomeAction(data));

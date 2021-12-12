@@ -61,7 +61,10 @@
 .objective-form button:hover {
   background-color: #0ca0f5;
 }
-
+.objective-form input {
+  font-size: 3rem;
+  text-align: center;
+}
 @media screen and (max-width: 600px) {
   .label-container {
     grid-template-columns: 1fr;
@@ -74,5 +77,9 @@
   }
   .objective-form button {
     padding: 1rem;
+  }
+  .objective-form input {
+    font-size: 2rem;
+    text-align: center;
   }
 }

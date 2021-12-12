@@ -4,6 +4,18 @@ import WhiteBackground from "../../layout/WhiteBackground";
 import "./styles.css";
 
 const ObjectiveMonth = () => {
+  const form = React.useRef(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(form.current);
+    const useData = {
+      budget: formData.get("budget"),
+      expense: formData.get("expense"),
+      saving: formData.get("saving"),
+    };
+    console.log(useData);
+  };
   return (
     <>
       <Menu />
@@ -15,20 +27,20 @@ const ObjectiveMonth = () => {
             </h1>
           </div>
           <div className="objective-keys-container">
-            <form action="" className="objective-form">
+            <form ref={form} action="" className="objective-form">
               <div className="label-container">
                 <label htmlFor="month-budget">Presupuesto Mensual</label>
-                <input id="month-budget" type="number" />
+                <input id="month-budget" name="budget" type="number" />
               </div>
               <div className="label-container">
                 <label htmlFor="month-expenses">Gasto mensual actual</label>
-                <input id="month-expenses" type="number" />
+                <input id="month-expenses" name="expense" type="number" />
               </div>
               <div className="label-container">
                 <label htmlFor="average-savings">Ahorro estimado</label>
-                <input id="average-savings" type="number" />
+                <input id="average-savings" name="saving" type="number" />
               </div>
-              <button id="form-button" type="">
+              <button onClick={handleSubmit} id="form-button" type="">
                 Guardar
               </button>
             </form>
