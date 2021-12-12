@@ -5,8 +5,11 @@ import { useDispatch } from "react-redux";
 import { registroEmailPasswordNombre } from "../../actions/actionsRegister";
 import { authUpdate } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const Register = () => {
+  const objectiveAlert = withReactContent(Swal);
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const name = useInputValue();
@@ -19,9 +22,19 @@ const Register = () => {
       email.value
     );
     if (!testEmail) {
-      alert("Correo electrónico no válido");
+      objectiveAlert.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Correo electrónico no válido",
+        confirmButtonColor: "#00b30c",
+      });
     } else if (!(password.value.length >= 6)) {
-      alert("Tu contraseña debe tener al menos 6 caracteres");
+      objectiveAlert.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Tu contraseña debe tener al menos 6 caracteres",
+        confirmButtonColor: "#00b30c",
+      });
     } else if (testEmail && password.value.length >= 6) {
       dispatch(
         registroEmailPasswordNombre(

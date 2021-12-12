@@ -26,7 +26,6 @@ const Menu = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          // Swal.fire("Deleted!", "Your file has been deleted.", "success");
           const auth = getAuth();
           signOut(auth)
             .then(() => {

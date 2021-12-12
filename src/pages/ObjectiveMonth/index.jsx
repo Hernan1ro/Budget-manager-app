@@ -31,6 +31,7 @@ const ObjectiveMonth = () => {
         icon: "error",
         title: "Oops...",
         text: "Todos los campos son obligatorios",
+        confirmButtonColor: "#00b30c",
       });
     } else {
       dispatch(monthObjectivesAction(userData));
