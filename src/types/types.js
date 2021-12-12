@@ -9,4 +9,5 @@ export const types = {
   addAntExpense: "AntExpense",
   addFixedExpense: "FixedExpense",
   editIncome: "editIncome",
+  monthObjective: "monthObjective",
 };

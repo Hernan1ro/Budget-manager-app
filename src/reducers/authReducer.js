@@ -7,9 +7,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
     INITIAL_STATE = false;
-    console.log("El usuario está logeado", uid);
   } else {
-    console.log("El usuario no está logeado");
     INITIAL_STATE = true;
   }
 });

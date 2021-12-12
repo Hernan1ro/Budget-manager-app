@@ -1,20 +1,25 @@
 import React from "react";
 import Menu from "../../components/Menu";
 import WhiteBackground from "../../layout/WhiteBackground";
+import { useDispatch, useSelector } from "react-redux";
+import { monthObjectivesAction } from "../../actions/actionsMonthObjetives";
 import "./styles.css";
 
 const ObjectiveMonth = () => {
   const form = React.useRef(null);
+  const objectiveMonthData = useSelector((state) => state.monthObjectives);
+  const { budget, expense, savings } = objectiveMonthData;
 
+  const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(form.current);
     const useData = {
-      budget: formData.get("budget"),
-      expense: formData.get("expense"),
-      saving: formData.get("saving"),
+      budget: Number(formData.get("budget")),
+      expense: Number(formData.get("expense")),
+      savings: Number(formData.get("savings")),
     };
-    console.log(useData);
+    dispatch(monthObjectivesAction(useData));
   };
   return (
     <>
@@ -30,15 +35,30 @@ const ObjectiveMonth = () => {
             <form ref={form} action="" className="objective-form">
               <div className="label-container">
                 <label htmlFor="month-budget">Presupuesto Mensual</label>
-                <input id="month-budget" name="budget" type="number" />
+                <input
+                  placeholder={budget}
+                  id="month-budget"
+                  name="budget"
+                  type="number"
+                />
               </div>
               <div className="label-container">
                 <label htmlFor="month-expenses">Gasto mensual actual</label>
-                <input id="month-expenses" name="expense" type="number" />
+                <input
+                  placeholder={expense}
+                  id="month-expenses"
+                  name="expense"
+                  type="number"
+                />
               </div>
               <div className="label-container">
                 <label htmlFor="average-savings">Ahorro estimado</label>
-                <input id="average-savings" name="saving" type="number" />
+                <input
+                  placeholder={savings}
+                  id="average-savings"
+                  name="savings"
+                  type="number"
+                />
               </div>
               <button onClick={handleSubmit} id="form-button" type="">
                 Guardar

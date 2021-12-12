@@ -6,6 +6,7 @@ import { authReducer } from "../reducers/authReducer";
 import { incomeReducer, editIncomeReducer } from "../reducers/incomeReducer";
 import { addExpenseReducer } from "../reducers/fixedExpensesReducers";
 import { addAntExpenseReducer } from "../reducers/antExpensesReducers";
+import { monthObjectiveReducer } from "../reducers/objectiveReducers";
 
 const composeEnhancers =
   (typeof window !== "undefined" &&
@@ -20,6 +21,7 @@ const reducers = combineReducers({
   editIncome: editIncomeReducer,
   expense: addExpenseReducer,
   antExpense: addAntExpenseReducer,
+  monthObjectives: monthObjectiveReducer,
 });
 
 export const store = createStore(
