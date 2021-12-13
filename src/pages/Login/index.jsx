@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useSelector } from "react-redux";
 import Spinner from "../../components/spinner2";
+import logo from "../../Assets/logo/FinAntApp3.png";
 
 const Login = () => {
   const objectiveAlert = withReactContent(Swal);
@@ -48,6 +49,7 @@ const Login = () => {
         <Spinner />
       ) : (
         <div className="login-container">
+          <img src={logo} alt="login-logo" className="home-logo login-logo" />
           <div className="login-form">
             <h1 className="login-form__title">Inicio de sesión</h1>
             <h4 className="login-form__subtitle">

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Spinner from "../../components/spinner2";
+import logo from "../../Assets/logo/FinAntApp3.png";
 
 const Register = () => {
   const isLoading = useSelector((state) => state.loading);
@@ -55,6 +56,7 @@ const Register = () => {
         <Spinner />
       ) : (
         <main className="main-register">
+          <img src={logo} alt="login-logo" className="register-logo" />
           <h3 className="main-register__title">Registrate</h3>
           <h5 className="main-register__subtitle">
             El camino está por delante de ti. Ya ha dado su primer paso hacia la

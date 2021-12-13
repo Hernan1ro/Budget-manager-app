@@ -1,16 +1,17 @@
 .login-container {
   width: 100%;
-  height: 85%;
+  height: auto;
   background: var(--black-opacity);
   position: absolute;
   top: 12%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .login-form {
-  padding: 2.6rem 1rem 4rem 1rem;
+  padding: 2.6rem 1rem 0rem 1rem;
   width: 60%;
   background-color: var(--orange-opacity);
   margin-top: 8rem;
@@ -19,6 +20,11 @@
   min-width: 300px;
   margin-top: 10rem;
   margin-top: 0;
+  margin-bottom: 4rem;
+}
+
+.login-logo {
+  margin-top: 1rem;
 }
 
 .login-form__title {
