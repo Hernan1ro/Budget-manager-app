@@ -6,6 +6,7 @@
   text-align: center;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 4rem;
+  position: relative;
 }
 .hidden {
   display: none;
@@ -23,15 +24,18 @@
   margin-bottom: 3rem;
 }
 .text-container__button {
-  padding: 2rem;
+  padding: 1.7rem;
   font-weight: bolder;
   color: white;
   background-color: var(--orange);
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   outline: none;
   border: none;
   border-radius: 5px;
+  position: absolute;
   cursor: pointer;
+  top: 0.3rem;
+  left: 9rem;
 }
 .chart-container {
   width: 50%;
@@ -67,5 +71,6 @@
   .text-container__button {
     padding: 1rem;
     font-size: 2rem;
+    left: 3rem;
   }
 }
