@@ -46,6 +46,7 @@
 }
 .text-container p {
   font-size: 1.6rem;
+  margin: 2rem;
 }
 @media screen and (max-width: 600px) {
   .char-container,

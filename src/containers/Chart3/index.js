@@ -21,8 +21,8 @@ const data = [
 ];
 
 function GeneralChart() {
-  const antExpenses = useSelector((state) => state.antExpense) || 100;
-  const income = useSelector((state) => state.income) || 200;
+  const antExpenses = useSelector((state) => state.antExpense);
+  const income = useSelector((state) => state.income);
 
   function getSum(total, num) {
     return total + num.value;

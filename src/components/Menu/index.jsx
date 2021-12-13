@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { loadingAction } from "../../actions/actionsLoading";
 import Spinner from "../spinner2";
+import logo from "../../Assets/logo/FinAntApp3.png";
 
 const Menu = () => {
   const isLoading = useSelector((state) => state.loading);
@@ -49,6 +50,9 @@ const Menu = () => {
         <Spinner />
       ) : (
         <header className="header-container">
+          <Link to="/">
+            <img src={logo} alt="logo-menu" className="logo-menu" />
+          </Link>
           <ul className="header-container__options">
             <li className="header-container__option">
               <Link to="/general">Informes</Link>
@@ -65,8 +69,6 @@ const Menu = () => {
             <li className="header-container__option">
               <Link to="/objetivos">Objetivos para el mes</Link>
             </li>
-          </ul>
-          <ul className="header-container__options">
             <li
               onClick={handleSignOut}
               className="header-container__option  header--signout-btn"
@@ -74,11 +76,6 @@ const Menu = () => {
               <div>Cerrar sesión</div>
             </li>
           </ul>
-          <img
-            alt="Menu icon"
-            className="header-container__icon hidden-icon"
-            src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-menu-user-interface-kmg-design-flat-kmg-design.png"
-          />
         </header>
       )}
     </>
