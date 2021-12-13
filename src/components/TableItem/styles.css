@@ -20,3 +20,7 @@
 .data-table__item tr {
   height: 4rem;
 }
+
+.edit-icon {
+  display: none;
+}

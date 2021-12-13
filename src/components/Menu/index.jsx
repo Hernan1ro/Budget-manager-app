@@ -38,9 +38,7 @@ const Menu = () => {
               navigate("/");
             })
             .catch((error) => {
-              console.log(error);
               dispatch(loadingAction(false));
-              console.log("terminó de cargar");
             });
         }
       });

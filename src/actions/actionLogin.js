@@ -25,7 +25,6 @@ export const loginEmailPassword = (
         navigate("/general");
       })
       .catch((err) => {
-        console.log(err);
         dispatch(loadingAction(false));
         objectiveAlert.fire({
           icon: "error",

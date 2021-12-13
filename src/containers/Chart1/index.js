@@ -23,7 +23,7 @@ const data = [
 ];
 
 function Chart1() {
-  const antExpenses = useSelector((state) => state.antExpense) || 100;
+  const antExpenses = useSelector((state) => state.antExpense);
   const savings = useSelector((state) => state.monthObjectives.savings);
 
   function getSum(total, num) {

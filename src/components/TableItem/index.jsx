@@ -15,25 +15,25 @@ const TableItem = ({ category, date, description, value, id, page }) => {
     dispatch(removeExpenseAction(id));
   };
 
-  const handleEdit = (id) => {
-    const data = { editMode: true, id };
-    console.log("Modo edición activado");
+  // const handleEdit = (id) => {
+  //   const data = { editMode: true, id };
+  //   console.log("Modo edición activado");
 
-    switch (page) {
-      case "Ingreso":
-        console.log("Editando ingresos");
-        dispatch(editIncomeAction(data));
-        break;
-      case "Gasto fijo":
-        console.log("Editando Gastos fijos");
-        break;
-      case "Gasto hormiga":
-        console.log("Editando Gasto hormiga");
-        break;
-      default:
-        break;
-    }
-  };
+  //   switch (page) {
+  //     case "Ingreso":
+  //       console.log("Editando ingresos");
+  //       dispatch(editIncomeAction(data));
+  //       break;
+  //     case "Gasto fijo":
+  //       console.log("Editando Gastos fijos");
+  //       break;
+  //     case "Gasto hormiga":
+  //       console.log("Editando Gasto hormiga");
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // };
 
   return (
     <tr>
@@ -55,12 +55,12 @@ const TableItem = ({ category, date, description, value, id, page }) => {
       <td className="data-value">$ {value}</td>
       <td className="data-actions">
         <div className="data-actions__container">
-          <i
+          {/* <i
             onClick={() => {
               handleEdit(id);
             }}
-            className="fas fa-pencil-alt"
-          ></i>
+            className="fas fa-pencil-alt edit-icon"
+          ></i> */}
           <i
             onClick={() => {
               handleDelete(id);

@@ -7,13 +7,6 @@ import { useSelector } from "react-redux";
 import "./styles.css";
 
 const Income = () => {
-  let btnSave = "Agregar nuevo ingreso";
-  const income = useSelector((state) => state.editIncome);
-  if (income.editMode) {
-    btnSave = "Guardar cambios";
-  } else {
-    btnSave = "Agregar nuevo ingreso";
-  }
   const tipoIngresos = ["Trabajo", "Inversion", "Pasivo", "Otro"];
   return (
     <>
@@ -23,7 +16,7 @@ const Income = () => {
           page="Ingreso"
           options={tipoIngresos}
           color={"green"}
-          btnSave={btnSave}
+          btnSave={"Agregar nuevo registro"}
         />
         <DataList color="green" page="Ingreso" />
       </WhiteBackground>

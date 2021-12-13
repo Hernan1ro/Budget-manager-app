@@ -23,14 +23,14 @@ const NewRecord = ({ page, options, color, btnSave }) => {
   const record = useHandleNewRecord;
   const dispatch = useDispatch();
 
-  const editIncome = () => {
-    const { id, editMode } = income;
-    if (editMode) {
-      const editObject = incomeList.filter((data) => data.id === id);
-      const { category, date, description, value } = editObject;
-    }
-  };
-  editIncome();
+  // const editIncome = () => {
+  //   const { id, editMode } = income;
+  //   if (editMode) {
+  //     const editObject = incomeList.filter((data) => data.id === id);
+  //     const { category, date, description, value } = editObject;
+  //   }
+  // };
+  // editIncome();
 
   const handleNewRecord = (e) => {
     e.preventDefault();

@@ -1,3 +1,6 @@
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import React from "react";
 import {
   Bar,
   BarChart,
@@ -13,27 +16,26 @@ const data = [
   {
     name: "Gastos Hormiga",
     gastosHormiga: 0,
-    keystroke: 1000,
   },
   {
     name: "Gastos fijos",
     gastosFijos: 0,
-    keystroke: 1000,
   },
   {
     name: "Ingresos",
     ingresos: 0,
-    keystroke: 1000,
   },
 ];
 
 function GeneralChart() {
+  const objectiveAlert = withReactContent(Swal);
+
   const antExpenses = useSelector((state) => state.antExpense) || 100;
   const income = useSelector((state) => state.income) || 200;
   const fixedExpenses = useSelector((state) => state.expense) || 300;
 
-  function getSum(total, num) {
-    return total + num.value;
+  function getSum(total, data) {
+    return total + data.value;
   }
   const totalAntExpenses = antExpenses.reduce(getSum, 0);
   const totalIncome = income.reduce(getSum, 0);
@@ -42,6 +44,17 @@ function GeneralChart() {
   data[0].gastosHormiga = totalAntExpenses;
   data[1].gastosFijos = totalExpenses;
   data[2].ingresos = totalIncome;
+
+  React.useEffect(() => {
+    if (totalExpenses > totalIncome) {
+      objectiveAlert.fire({
+        icon: "warning",
+        title: "Revisa tus finanzas",
+        text: "Tus gastos son mayores a tus ingresos",
+        confirmButtonColor: "#f71000",
+      });
+    }
+  }, []);
 
   return (
     <ResponsiveContainer width="90%">

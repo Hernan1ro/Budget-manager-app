@@ -6,13 +6,6 @@ import DataList from "../../containers/DataList";
 import "./styles.css";
 
 const AntExpenses = () => {
-  let btnSave = "Agregar nuevo ingreso";
-  const income = false;
-  if (income.editMode) {
-    btnSave = "Guardar cambios";
-  } else {
-    btnSave = "Agregar nuevo ingreso";
-  }
   const options = [
     "Diversion",
     "Snacks",
@@ -29,7 +22,7 @@ const AntExpenses = () => {
           page="Gasto hormiga"
           options={options}
           color="orange"
-          btnSave={btnSave}
+          btnSave={"Agregar nuevo registro"}
         />
         <DataList color="orange" page="Gasto hormiga" />
       </WhiteBackground>

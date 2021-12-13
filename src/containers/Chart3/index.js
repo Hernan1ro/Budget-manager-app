@@ -13,12 +13,10 @@ const data = [
   {
     name: "Gastos Hormiga",
     gastosHormiga: 0,
-    keystroke: 1000,
   },
   {
     name: "Ingresos",
     ingresos: 0,
-    keystroke: 1000,
   },
 ];
 
