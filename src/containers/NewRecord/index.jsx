@@ -34,41 +34,44 @@ const NewRecord = ({ page, options, color, btnSave }) => {
 
   const handleNewRecord = (e) => {
     e.preventDefault();
+    const data = record(quantity, date, description, category);
+    if (
+      data.value <= 0 ||
+      data.id === "" ||
+      data.value === "" ||
+      data.description === "" ||
+      data.category === ""
+    ) {
+      objectiveAlert.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Todos los campos son obligatorios",
+        confirmButtonColor: "#00b30c",
+      });
+      return;
+    }
 
-    //comprobación el modo edición
-    if (income.editMode) {
-      console.log("Apagando modo edición");
-      dispatch(editIncomeAction({ editMode: false, id: "" }));
-    } else {
-      const data = record(quantity, date, description, category);
-      if (
-        data.value <= 0 ||
-        data.id === "" ||
-        data.value === "" ||
-        data.description === "" ||
-        data.category === ""
-      ) {
-        objectiveAlert.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Todos los campos son obligatorios",
-          confirmButtonColor: "#00b30c",
-        });
-        return;
-      }
-      switch (page) {
-        case "Ingreso":
-          dispatch(addIncomeAction(data));
-          break;
-        case "Gasto fijo":
-          dispatch(addFixedExpenseAction(data));
-          break;
-        case "Gasto hormiga":
-          dispatch(addExpenseAction(data));
-          break;
-        default:
-          break;
-      }
+    switch (page) {
+      case "Ingreso":
+        dispatch(addIncomeAction(data));
+        clearForm();
+        break;
+      case "Gasto fijo":
+        dispatch(addFixedExpenseAction(data));
+        clearForm();
+        break;
+      case "Gasto hormiga":
+        dispatch(addExpenseAction(data));
+        clearForm();
+        break;
+      default:
+        break;
+    }
+    function clearForm() {
+      quantity.reset();
+      date.reset();
+      description.reset();
+      category.reset();
     }
   };
   return (
@@ -78,7 +81,12 @@ const NewRecord = ({ page, options, color, btnSave }) => {
         <p className={`new-record__subtitle ${color}-color`}>
           Debe tener un valor mayor que 0
         </p>
-        <form onSubmit={handleNewRecord} action="" className="new-record__form">
+        <form
+          id="myForm"
+          onSubmit={handleNewRecord}
+          action=""
+          className="new-record__form"
+        >
           <div className={`input-container ${color}-input-color`}>
             <img src="" alt="" />
             <input
@@ -119,7 +127,7 @@ const NewRecord = ({ page, options, color, btnSave }) => {
               {...category}
             >
               <option value="" disabled selected>
-                Seleccionar
+                Seleccionar categoria
               </option>
               {options.map((option) => {
                 return (
