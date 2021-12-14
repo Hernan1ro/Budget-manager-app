@@ -1,16 +1,17 @@
 import { types } from "../types/types";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-let INITIAL_STATE = false;
-const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    const uid = user.uid;
-    INITIAL_STATE = false;
-  } else {
-    INITIAL_STATE = true;
-  }
-});
+let INITIAL_STATE = true;
+// const auth = getAuth();
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     INITIAL_STATE = true;
+//     console.log("usuario logeado");
+//   } else {
+//     INITIAL_STATE = false;
+//     console.log("usuario no logeado");
+//   }
+// });
 
 export const authReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

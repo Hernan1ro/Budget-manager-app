@@ -50,9 +50,7 @@ const Menu = () => {
         <Spinner />
       ) : (
         <header className="header-container">
-          <Link to="/">
-            <img src={logo} alt="logo-menu" className="logo-menu" />
-          </Link>
+          <img src={logo} alt="logo-menu" className="logo-menu" />
           <ul className="header-container__options">
             <li className="header-container__option">
               <Link to="/general">Informes</Link>

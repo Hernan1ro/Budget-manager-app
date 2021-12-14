@@ -118,6 +118,9 @@ const NewRecord = ({ page, options, color, btnSave }) => {
               placeholder="Categoria"
               {...category}
             >
+              <option value="" disabled selected>
+                Seleccionar
+              </option>
               {options.map((option) => {
                 return (
                   <option key={option} value={option}>
