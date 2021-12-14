@@ -22,11 +22,7 @@ const ObjectiveMonth = () => {
       expense: Number(formData.get("expense")),
       savings: Number(formData.get("savings")),
     };
-    if (
-      userData.budget === 0 ||
-      userData.expense === 0 ||
-      userData.savings === 0
-    ) {
+    if (userData.budget < 0 || userData.expense < 0 || userData.savings < 0) {
       objectiveAlert.fire({
         icon: "error",
         title: "Oops...",
