@@ -26,6 +26,17 @@ const ObjectiveMonth = () => {
       objectiveAlert.fire({
         icon: "error",
         title: "Oops...",
+        text: "Los valores deben ser mayor a cero",
+        confirmButtonColor: "#00b30c",
+      });
+    } else if (
+      userData.budget === "" ||
+      userData.expense === "" ||
+      userData.savings === ""
+    ) {
+      objectiveAlert.fire({
+        icon: "error",
+        title: "Oops...",
         text: "Todos los campos son obligatorios",
         confirmButtonColor: "#00b30c",
       });

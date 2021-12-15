@@ -11,38 +11,72 @@ import Income from "../pages/Income";
 import ObjectiveMonth from "../pages/ObjectiveMonth";
 import NotFound from "../pages/NotFound";
 import { useSelector } from "react-redux";
+import { db } from "../firebase/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { loadingAction } from "../actions/actionsLoading";
+import Spinner from "../components/spinner2";
 
 function App() {
-  const { auth } = useSelector((state) => state);
-
+  // const { auth } = useSelector((state) => state);
+  const isLoading = useSelector((state) => state.loading);
+  const dispatch = useDispatch();
+  const [auth, setAuth] = React.useState(false);
+  const authCollectionRef = collection(db, "auth");
+  React.useEffect(() => {
+    dispatch(loadingAction(true));
+    const getAuth = async () => {
+      const data = await getDocs(authCollectionRef);
+      setAuth(data.docs.map((doc) => ({ ...doc.data() }))[0].auth);
+      dispatch(loadingAction(false));
+    };
+    getAuth();
+  }, []);
+  console.log(auth);
   return (
     <Background>
-      <BrowserRouter>
-        <Routes>
-          {!auth && (
-            <Route path="/general" element={<Navigate to="/login" />} />
-          )}
-          {!auth && (
-            <Route path="/gastos-hormiga" element={<Navigate to="/login" />} />
-          )}
-          {!auth && <Route path="/gastos" element={<Navigate to="/login" />} />}
-          {!auth && (
-            <Route path="/ingresos" element={<Navigate to="/login" />} />
-          )}
-          {!auth && (
-            <Route path="/objetivos" element={<Navigate to="/login" />} />
-          )}
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/general" element={<General />} />
-          <Route path="/gastos-hormiga" element={<AntExpenses />} />
-          <Route path="/gastos" element={<FixedExpenses />} />
-          <Route path="/ingresos" element={<Income />} />
-          <Route path="/objetivos" element={<ObjectiveMonth />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            {!auth && (
+              <Route path="/general" element={<Navigate to="/login" />} />
+            )}
+            {!auth && (
+              <Route
+                path="/gastos-hormiga"
+                element={<Navigate to="/login" />}
+              />
+            )}
+            {!auth && (
+              <Route path="/gastos" element={<Navigate to="/login" />} />
+            )}
+            {!auth && (
+              <Route path="/ingresos" element={<Navigate to="/login" />} />
+            )}
+            {!auth && (
+              <Route path="/objetivos" element={<Navigate to="/login" />} />
+            )}
+            {auth && (
+              <Route path="/login" element={<Navigate to="/general" />} />
+            )}
+            {auth && <Route path="/" element={<Navigate to="/general" />} />}
+            {auth && (
+              <Route path="/register" element={<Navigate to="/general" />} />
+            )}
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/general" element={<General />} />
+            <Route path="/gastos-hormiga" element={<AntExpenses />} />
+            <Route path="/gastos" element={<FixedExpenses />} />
+            <Route path="/ingresos" element={<Income />} />
+            <Route path="/objetivos" element={<ObjectiveMonth />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      )}
     </Background>
   );
 }

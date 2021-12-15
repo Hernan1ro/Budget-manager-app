@@ -68,10 +68,10 @@ const NewRecord = ({ page, options, color, btnSave }) => {
         break;
     }
     function clearForm() {
-      quantity.reset();
-      date.reset();
-      description.reset();
-      category.reset();
+      quantity.emptyvalue();
+      date.emptyvalue();
+      description.emptyvalue();
+      category.emptyvalue();
     }
   };
   return (
