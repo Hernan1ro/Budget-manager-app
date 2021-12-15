@@ -16,7 +16,6 @@ const Menu = () => {
   const isLoading = useSelector((state) => state.loading);
   const objectiveAlert = withReactContent(Swal);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const updateAuth = async (id, auth) => {
     const userDoc = doc(db, "auth", id);

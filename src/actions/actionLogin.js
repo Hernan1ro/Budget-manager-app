@@ -32,8 +32,8 @@ export const loginEmailPassword = (
           dispatch(loginSincrono(user.uid, user.displayName));
           dispatch(authUpdate(true));
           dispatch(loadingAction(false));
+          window.location.href = "/general";
         }, 1000);
-        window.location.href = "/general";
       })
       .catch((err) => {
         dispatch(loadingAction(false));
