@@ -23,6 +23,7 @@ function App() {
   const dispatch = useDispatch();
   const [auth, setAuth] = React.useState(false);
   const authCollectionRef = collection(db, "auth");
+
   React.useEffect(() => {
     dispatch(loadingAction(true));
     const getAuth = async () => {
@@ -61,10 +62,10 @@ function App() {
             {auth && (
               <Route path="/login" element={<Navigate to="/general" />} />
             )}
-            {auth && <Route path="/" element={<Navigate to="/general" />} />}
             {auth && (
               <Route path="/register" element={<Navigate to="/general" />} />
             )}
+            {auth && <Route path="/" element={<Navigate to="/general" />} />}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

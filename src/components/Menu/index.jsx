@@ -9,6 +9,8 @@ import withReactContent from "sweetalert2-react-content";
 import { loadingAction } from "../../actions/actionsLoading";
 import Spinner from "../spinner2";
 import logo from "../../Assets/logo/FinAntApp3.png";
+import { db } from "../../firebase/firebaseConfig";
+import { doc, updateDoc } from "firebase/firestore";
 
 const Menu = () => {
   const isLoading = useSelector((state) => state.loading);
@@ -16,7 +18,14 @@ const Menu = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const updateAuth = async (id, auth) => {
+    const userDoc = doc(db, "auth", id);
+    const newFields = { auth: false };
+    await updateDoc(userDoc, newFields);
+  };
+
   const handleSignOut = () => {
+    updateAuth("0SvSED3RQHVxkpQZxDyX", false);
     objectiveAlert
       .fire({
         title: "¿Estás seguro de cerrar sesión?",
@@ -36,7 +45,8 @@ const Menu = () => {
             .then(() => {
               dispatch(authUpdate(false));
               dispatch(loadingAction(false));
-              navigate("/");
+              // navigate("/login");
+              window.location.href = "/";
             })
             .catch((error) => {
               dispatch(loadingAction(false));
