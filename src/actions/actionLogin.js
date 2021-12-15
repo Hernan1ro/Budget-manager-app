@@ -7,6 +7,14 @@ import {
 import { google, facebook } from "../firebase/firebaseConfig";
 import { authUpdate } from "../actions/authActions";
 import { loadingAction } from "../actions/actionsLoading";
+import { db } from "../firebase/firebaseConfig";
+import { doc, updateDoc } from "firebase/firestore";
+
+const updateAuth = async (id, auth) => {
+  const userDoc = doc(db, "auth", id);
+  const newFields = { auth: true };
+  await updateDoc(userDoc, newFields);
+};
 
 export const loginEmailPassword = (
   email,
@@ -19,10 +27,13 @@ export const loginEmailPassword = (
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        dispatch(loginSincrono(user.uid, user.displayName));
-        dispatch(authUpdate(true));
-        dispatch(loadingAction(false));
-        navigate("/general");
+        updateAuth("0SvSED3RQHVxkpQZxDyX", true);
+        setTimeout(() => {
+          dispatch(loginSincrono(user.uid, user.displayName));
+          dispatch(authUpdate(true));
+          dispatch(loadingAction(false));
+        }, 1000);
+        window.location.href = "/general";
       })
       .catch((err) => {
         dispatch(loadingAction(false));
@@ -42,10 +53,13 @@ export const loginGoogle = (navigate) => {
     const auth = getAuth();
     signInWithPopup(auth, google)
       .then(({ user }) => {
-        dispatch(authUpdate(true));
-        dispatch(loginSincrono((user.uid, user.displayName)));
-        dispatch(loadingAction(false));
-        navigate("/general");
+        updateAuth("0SvSED3RQHVxkpQZxDyX", true);
+        setTimeout(() => {
+          dispatch(authUpdate(true));
+          dispatch(loginSincrono((user.uid, user.displayName)));
+          dispatch(loadingAction(false));
+          window.location.href = "/general";
+        }, 1000);
       })
       .catch((err) => {
         console.log(err);
@@ -60,10 +74,13 @@ export const loginFacebook = (navigate) => {
     const auth = getAuth();
     signInWithPopup(auth, facebook)
       .then(({ user }) => {
-        dispatch(authUpdate(true));
-        dispatch(loginSincrono((user.uid, user.displayName)));
-        dispatch(loadingAction(false));
-        navigate("/general");
+        updateAuth("0SvSED3RQHVxkpQZxDyX", true);
+        setTimeout(() => {
+          dispatch(authUpdate(true));
+          dispatch(loginSincrono((user.uid, user.displayName)));
+          dispatch(loadingAction(false));
+          window.location.href = "/general";
+        }, 1000);
       })
       .catch((err) => {
         dispatch(loadingAction(false));
