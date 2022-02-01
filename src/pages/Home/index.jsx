@@ -23,7 +23,7 @@ const Home = () => {
           <div className="form-image">
             <img
               src="https://pngeans.com/wp-content/uploads/2019/12/free-personal-finance-courses.jpg"
-              alt="Home-image"
+              alt="Home"
             />
           </div>
           <form className="form" action="">

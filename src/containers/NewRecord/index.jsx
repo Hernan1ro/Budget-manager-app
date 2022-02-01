@@ -5,15 +5,11 @@ import { useHandleNewRecord } from "../../hooks/useHandleNewRecord";
 import { addIncomeAction } from "../../actions/incomeActions";
 import { addFixedExpenseAction } from "../../actions/expensesActions";
 import { addExpenseAction } from "../../actions/actionsAntExpense";
-import { useDispatch, useSelector } from "react-redux";
-import { editIncomeAction } from "../../actions/incomeActions";
+import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 const NewRecord = ({ page, options, color, btnSave }) => {
-  const income = useSelector((state) => state.editIncome);
-  const incomeList = useSelector((state) => state.income);
-
   const quantity = useInputValue();
   const date = useInputValue();
   const description = useInputValue();
@@ -22,15 +18,6 @@ const NewRecord = ({ page, options, color, btnSave }) => {
 
   const record = useHandleNewRecord;
   const dispatch = useDispatch();
-
-  // const editIncome = () => {
-  //   const { id, editMode } = income;
-  //   if (editMode) {
-  //     const editObject = incomeList.filter((data) => data.id === id);
-  //     const { category, date, description, value } = editObject;
-  //   }
-  // };
-  // editIncome();
 
   const handleNewRecord = (e) => {
     e.preventDefault();

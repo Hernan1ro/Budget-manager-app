@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./styles.css";
 import { getAuth, signOut } from "firebase/auth";
 import { authUpdate } from "../../actions/authActions";
@@ -44,7 +44,6 @@ const Menu = () => {
             .then(() => {
               dispatch(authUpdate(false));
               dispatch(loadingAction(false));
-              // navigate("/login");
               window.location.href = "/";
             })
             .catch((error) => {

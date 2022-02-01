@@ -1,5 +1,4 @@
 import { types } from "../types/types";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 let INITIAL_STATE = true;
 // const auth = getAuth();

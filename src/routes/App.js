@@ -20,12 +20,12 @@ import Spinner from "../components/spinner2";
 function App() {
   // const { auth } = useSelector((state) => state);
   const isLoading = useSelector((state) => state.loading);
-  const dispatch = useDispatch();
   const [auth, setAuth] = React.useState(false);
-  const authCollectionRef = collection(db, "auth");
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(loadingAction(true));
+    const authCollectionRef = collection(db, "auth");
     const getAuth = async () => {
       const data = await getDocs(authCollectionRef);
       setAuth(data.docs.map((doc) => ({ ...doc.data() }))[0].auth);
@@ -33,7 +33,6 @@ function App() {
     };
     getAuth();
   }, []);
-  console.log(auth);
   return (
     <Background>
       {isLoading ? (

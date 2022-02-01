@@ -3,8 +3,6 @@ import "./styles.css";
 import useInputValue from "../../hooks/useInputValue";
 import { useDispatch, useSelector } from "react-redux";
 import { registroEmailPasswordNombre } from "../../actions/actionsRegister";
-import { authUpdate } from "../../actions/authActions";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Spinner from "../../components/spinner2";
@@ -13,17 +11,15 @@ import logo from "../../Assets/logo/FinAntApp3.png";
 const Register = () => {
   const isLoading = useSelector((state) => state.loading);
   const objectiveAlert = withReactContent(Swal);
-  let navigate = useNavigate();
   const dispatch = useDispatch();
   const name = useInputValue();
   const email = useInputValue();
   const password = useInputValue();
 
   const handleSubmit = (e) => {
+    const regularExpresion = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
     e.preventDefault();
-    const testEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-      email.value
-    );
+    const testEmail = regularExpresion.test(email.value);
     if (!testEmail) {
       objectiveAlert.fire({
         icon: "error",
@@ -40,12 +36,7 @@ const Register = () => {
       });
     } else if (testEmail && password.value.length >= 6) {
       dispatch(
-        registroEmailPasswordNombre(
-          email.value,
-          password.value,
-          name.value,
-          navigate
-        )
+        registroEmailPasswordNombre(email.value, password.value, name.value)
       );
     }
   };

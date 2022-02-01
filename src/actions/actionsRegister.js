@@ -15,12 +15,7 @@ const updateAuth = async (id, auth) => {
   await updateDoc(userDoc, newFields);
 };
 
-export const registroEmailPasswordNombre = (
-  email,
-  password,
-  name,
-  navigate
-) => {
+export const registroEmailPasswordNombre = (email, password, name) => {
   return (dispatch) => {
     dispatch(loadingAction(true));
     const auth = getAuth();

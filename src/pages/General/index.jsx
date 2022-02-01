@@ -40,9 +40,9 @@ const General = () => {
       (totalAntExpenses / totalIncome) * 100
     )} % de tus ingresos`;
   } else {
-    var message = "";
-    var message1 = "";
-    var message2 = "";
+    message = "";
+    message1 = "";
+    message2 = "";
   }
   console.log(totalAntExpenses, totalIncome, totalExpenses, savings);
 

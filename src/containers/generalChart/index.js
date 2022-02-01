@@ -28,8 +28,6 @@ const data = [
 ];
 
 function GeneralChart() {
-  const objectiveAlert = withReactContent(Swal);
-
   const antExpenses = useSelector((state) => state.antExpense) || 100;
   const income = useSelector((state) => state.income) || 200;
   const fixedExpenses = useSelector((state) => state.expense) || 300;
@@ -46,6 +44,7 @@ function GeneralChart() {
   data[2].ingresos = totalIncome;
 
   React.useEffect(() => {
+    const objectiveAlert = withReactContent(Swal);
     if (totalExpenses > totalIncome) {
       objectiveAlert.fire({
         icon: "warning",

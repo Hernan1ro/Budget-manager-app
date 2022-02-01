@@ -13,8 +13,6 @@ import withReactContent from "sweetalert2-react-content";
 import { useSelector } from "react-redux";
 import Spinner from "../../components/spinner2";
 import logo from "../../Assets/logo/FinAntApp3.png";
-import { db } from "../../firebase/firebaseConfig";
-import { doc, updateDoc } from "firebase/firestore";
 
 const Login = () => {
   const objectiveAlert = withReactContent(Swal);
@@ -23,12 +21,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const email = useInputValue();
   const password = useInputValue();
-
-  // const updateAuth = async (id, auth) => {
-  //   const userDoc = doc(db, "auth", id);
-  //   const newFields = { auth: true };
-  //   await updateDoc(userDoc, newFields);
-  // };
 
   const handlelogin = (e) => {
     e.preventDefault();
@@ -46,7 +38,6 @@ const Login = () => {
     );
   };
   const handleGoogle = () => {
-    // updateAuth("0SvSED3RQHVxkpQZxDyX", true);
     dispatch(loginGoogle(navigate));
   };
   const handleFacebook = () => {
